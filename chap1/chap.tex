@@ -1,5 +1,5 @@
 \ifx\allfiles\undefined
-\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}  %  这一句是新增加的
+\documentlecture[12pt, a4paper, oneside, UTF8]{ctexbook}  %  这一句是新增加的
 \usepackage[dvipsnames]{xcolor}
 \usepackage{amsmath}   % 数学公式
 \usepackage{graphicx}
@@ -19,7 +19,7 @@
 \fi
 %  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 正文部分
 \chapter{concise review of basic concepts and definitions}
-\section{class 1}
+\section{lecture 1}
 \begin{defn}
 \par\indent
 \begin{enumerate}
@@ -145,20 +145,13 @@ there is always \textbf{one and only one SES} for each value of the energy \( E 
 \end{itemize}
 \end{zhu}
 \end{law}
-\section{class 2}
-\begin{thm}
-    Consequences of First \& Second Law Together Entail
+\section{lecture 2}
+\begin{thm}\label{cfsl1}
+    Consequences of First \& Second Law (p\pageref{cfsl2}\;,\; p\pageref{cfsl3})
     \begin{itemize}
         \item Kelvin-Planck statement: impossibility of perpetual motion of the second kind
         
         (It is impossible to extract mechanical energy without other effects from a system initially in a stable equilibrium state)
-        % \item Supports the definition of property adiabatic availability
-        % \item Supports the definition of property temperature of a thermal reservoir
-        % \item Supports the definition of property entropy
-        % \item Principle of nondecrease of entropy. Entropy balance
-        % \item Criteria to determine if a process is reversible or not
-        % \item State principle and fundamental relation for the stable equilibrium states
-        % \item Conditions for mutual equilibrium between systems
         \item Clausius statement: Conditions for the spontaneous exchange of energy between systems initially in stable equilibrium states but not in mutual equilibrium
     \end{itemize}
 \begin{proof}
@@ -246,9 +239,211 @@ The ratio
 S_1 = S_0 + \frac{\left(E_{s0\text{rev}}^R - E_{s1}^R\right)_{A_1 R_{s1} \underset{w,rev}{\rightarrow} A_0 R_{s0\text{rev}}}}{T_R}
 \]
 \end{defn}
+\begin{defn}
+    Available Energy w.r.t. a thermal reservoir
 
+    Given state \( A_1 \) and the reservoir \( R \), 
+    the maximum weight lift obtains when \( A \) ends 
+    in state \( A_R \) and the standard weight process for \( AR \) is reversible.
+    \[\Omega_1^R=(E_1-E_R)+(E^R_{s1}-E^R_{sRrev})
+    =(E_1-E_R)-(E^R_{sRrev}-E^R_{s1})=(E_1-E_R)-T_R(S_1-S_R)\]
+    We call it \textbf{available energy of \(A\) in state \(A_1\) w.r.t. a thermal reservoir \(R\)}.
+\end{defn}
+\begin{thm}\label{cfsl2}
+    Consequences of the (First\&) Second Law (p\pageref{cfsl1}\;,\; p\pageref{cfsl3})
+    \begin{itemize}
+        \item supports the definition of property adiabatic availability
+        \item supports the definition of property temperature of a thermal reservoir
+        \item supports the definition of property entropy
+        \item The entropy is \textbf{a linear function} of that part of the energy of the system which  
+        is unavailable with respect to the reservoir, \textbf{the constant of proportionality} being \textbf{the  
+        inverse of the temperature} of the reservoir.
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{chap1/2.1.png}
+        \end{center}
+        \item additivity of entropy 
+        \item exchangeability of entropy via interactions
+        \item principle of entropy non\textminus decrease in a weight process
+    \end{itemize}
+\end{thm}
+\begin{corollary}
+    Criteria for the reversibility of a weight process
+    \begin{itemize}
+        \item \textbf{Reversible iff:} \( E_2 - \Psi_2 = E_1 - \Psi_1 \qquad
+        E_2 - \Omega^R_2 = E_1 - \Omega^R_1 \qquad S_2=S_1\)
+        \item \textbf{Irreversible iff:} \( E_2 - \Psi_2 \geq E_1 - \Psi_1 \qquad
+        E_2 - \Omega^R_2 \geq E_1 - \Omega^R_1 \qquad S_2\geq S_1 \)
+        \item \textbf{Impossible iff:} \( E_2 - \Psi_2 \leq E_1 - \Psi_1 \qquad
+        E_2 - \Omega^R_2 \leq E_1 - \Omega^R_1 \qquad S_2\leq S_1 \)
+    \end{itemize}
+\end{corollary}
+\begin{thm}
+    
+\end{thm}
 
+\textbf{Maximum entropy principle:} Among all the states with the same given values of the amounts of constituents, the parameters, and \textbf{the energy}, only the stable equilibrium state has the maximum value of the entropy.
 
+\textbf{Minimum energy principle:} Among all the states with the same given values of the amounts of constituents, the parameters, and \textbf{the entropy}, only the stable equilibrium state has the minimum value of the energy.
+\begin{add}
+    \textbf{非平衡态系统中最小能量原理失效}：
+        \begin{itemize}
+            \item 传统热力学中，系统趋向能量最低态的前提是孤立或平衡条件。
+            \item 非平衡态系统的能量可能被外部驱动力“泵入”，导致能量高于平衡态（如生物细胞的主动运输）。
+        \end{itemize}
+\end{add}
+\begin{thm}\label{cfsl3}
+    Consequences of the (First\&) Second Law (p\pageref{cfsl1}\;,\; p\pageref{cfsl2})
+\begin{itemize}
+    \item State Principle
+    
+    Among all the states with the same given values of the amounts of constituents, the parameters, 
+    and the energy, one and only one is a stable equilibrium state (Second Law) and 
+    therefore the value of any property is uniquely determined by the values of 
+    the amounts of constituents, the parameters, and the energy.
+    \[
+    P = P(E, n_1, \ldots, n_r, \beta_1, \ldots, \beta_s)
+    \] 
+    \item Gibbs relation
+    \begin{itemize}
+        \item 
+        \(
+        S = S(E, V, n_1, \dots, n_r)
+        \),        
+        Gibbs relation (entropy form):
+\[
+dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
+\]
+        \item 
+        \(
+        E = E(S, V, n_1, \dots, n_r)
+        \),        
+        Gibbs relation (energy form):
+        \[
+        dE = T dS - P dV + \sum_i \mu_i dn_i
+        \]
+    \end{itemize}
+    \begin{add}
+        通过诺特定律，Gibbs 关系的能量形式和熵形式可以统一解释为：
+\begin{itemize}
+    \item 能量形式：时间平移对称性生成的守恒内能 \(E\)，描述了系统的守恒性质。
+    \item 熵形式：熵最大化原理，描述了系统在自发过程中熵的变化方向。
+\end{itemize}
+        两种形式通过 Legendre 变换和对偶对称性紧密关联。
+    \begin{zhu}
+        热力学中常见的对称性：
+
+    时间平移对称性 $\Rightarrow$ 能量守恒，
+    空间均匀性 $\Rightarrow$ 压强平衡，
+    粒子数守恒 $\Rightarrow$ 化学势平衡。
+    \end{zhu}
+    \end{add}
+\end{itemize}
+\end{thm}
+\begin{defn}
+    \par\indent
+    \begin{itemize}
+        \item The (absolute) temperature is defined by  
+        \[
+        T = \left( \frac{\partial E}{\partial S} \right)_{\vec{n}, V} \quad \text{or} \quad \left( \frac{\partial S}{\partial E} \right)_{\vec{n}, V} = \frac{1}{T}
+        \]          
+        \item The chemical potential of the \(i\)-th constituent is defined by  
+        \[
+        \mu_i = \left( \frac{\partial E}{\partial n_i} \right)_{S, V} \quad \text{or} \quad \left( \frac{\partial S}{\partial n_i} \right)_{E, V} = -\frac{\mu_i}{T}
+        \]          
+        \item The pressure is defined by  
+        \[
+        p = - \left( \frac{\partial E}{\partial V} \right)_{S, \vec{n}} \quad \text{or} \quad \left( \frac{\partial S}{\partial V} \right)_{E, \vec{n}} = \frac{p}{T}
+        \]
+    \end{itemize}
+\end{defn}
+\section{lecture 3}
+\begin{proposition}
+    Necessary Conditions for Mutual Equilibrium
+    \begin{itemize}
+        \item \((T_1=T_2)\)
+        \textbf{Equality of the temperatures} of the two systems is a necessary condition for mutual equilibrium if the two systems can exchange \textbf{energy}.
+        \item \((p_1=p_2)\)
+        \textbf{Equality of the pressures} of the two systems is a necessary condition for mutual equilibrium if the two systems can exchange \textbf{volume}.
+        \item \((\mu_{i,1} = \mu_{i,2})\)
+        \textbf{Equality of the chemical potentials of the \(i\)-th constituent} in the two systems is a necessary condition for mutual equilibrium if the two systems can exchange \textbf{the \(i\)-th constituent}.
+    \end{itemize}
+\end{proposition}
+\begin{minipage}{0.8\textwidth}
+    \centering
+    \includegraphics[width=0.75\textwidth]{chap1/3.1.png}
+    \captionof{figure}{Representation of notSES and SES}
+\end{minipage}
+\begin{defn}
+    negative temperatures \(T_{N1}\)
+
+\begin{minipage}{0.8\textwidth}
+    \centering
+    \includegraphics[width=0.5\textwidth]{chap1/3.2.png}
+    \captionof{figure}{Special systems with upper bounded energy}
+\end{minipage}
+\end{defn}
+\section{lecture 4}
+\begin{thm}
+    \indent
+    \begin{itemize}
+        \item To extract energy from a system in a s.e.s., we must also extract entropy:
+        \[
+        S_{s1} - S_{s2} > (E_{s1} - E_{s2}) / T_{s1}
+        \]
+        \item To give entropy to a system in a s.e.s., we must also give energy:
+        \[
+        E_{s2} - E_{s1} > T_{s1}(S_{s2} - S_{s1})
+        \]
+    \end{itemize}
+    \begin{add}
+阴阳动态平衡与热力学公式的哲学对应
+
+\begin{itemize}
+    \item \textbf{能量与熵的不可分割性 (万物负阴而抱阳) }  
+    \[
+    S_{s1} - S_{s2} > \frac{E_{s1} - E_{s2}}{T_{s1}}
+    \]
+    \textit{哲学内涵}：能量（阳）显化为外在功用时，系统内禀的微观状态自由度（阴）必须同步减少,以熵的隐性耗散为代价。
+    \[
+    E_{s2} - E_{s1} > T_{s1}(S_{s2} - S_{s1})
+    \]
+    \textit{哲学内涵}：熵增（阴）代表系统微观状态自由度的扩展，而能量输入（阳）则是维持这种扩展的必要动力。
+    \item \textbf{动态平衡 (冲气为和) }  
+    
+    系统稳态（s.e.s.）下的状态迁移需满足：
+    \[
+    \Delta E > T\Delta S \quad \text{或} \quad \Delta S > \frac{\Delta E}{T}
+    \]
+    \textit{哲学内涵}：阴阳消长需通过能量\textminus 熵交换（冲气）达成新平衡。不等式方向表明：
+    \begin{itemize}
+        \item 当系统释放能量（阳减），必伴随熵的净输出（阴减），否则平衡被破坏
+        \item 当系统吸收熵（阴增），需注入超额能量（阳增）以维持（和）的状态
+    \end{itemize}
+
+    \item \textbf{自然无为的约束 (为者败之，执者失之) }
+    
+    由于The Onsager reciprocity relations，对传热、扩散等过程，熵产率（\(\sigma\)）与热力学力（\(X\)）和流（\(J\)）满足：
+    \[
+    \sigma = J \cdot X \geq 0
+    \]
+在近平衡态下，流与力呈线性关系 \(J = L X\)，故：
+\[
+\dot{S}_{\text{gen}} = \int_V \sigma \, dV \geq 0 \quad \text{且} \quad \sigma \propto X^2 \; (\text{近平衡态})
+\]
+干预系统时，损耗能量满足：
+\[
+\dot{W}_{\text{lost}} = T_R \dot{S}_{\text{gen}} \propto X^2 
+\]
+\textbf{典型耗散形式}：
+\begin{itemize}
+\item \textbf{焦耳加热：}电阻为 \(R\) 时，功率损耗 \(P = I^2 R\)，与电流平方成正比。
+\item \textbf{粘滞耗散：} 流体剪切速率为 \(\dot{\gamma}\) 时，耗散率 \( \Psi = \eta \dot{\gamma}^2 \)，其中 \(\eta\) 为粘度。
+\item \textbf{温差传热：} 温度梯度为 \(\nabla(T)\) 时，熵产率为 \( \sigma = \kappa \frac{(\nabla T)^2}{T^2} \)，其中 \(\kappa\) 为热导率。
+\end{itemize}
+    对系统的能量\textminus 熵操控必然引入不可逆代价，卡诺循环效率仅为理论极限。
+\end{itemize}
+    \end{add}
+\end{thm}
 
 
 

@@ -123,7 +123,7 @@ Nonequilibrium
     \par\indent
 \begin{minipage}{0.8\textwidth}
     \centering
-    \includegraphics[width=0.75\textwidth]{chap1/1.1.png}
+    \includegraphics[width=0.75\textwidth]{chap1/image/1.1.png}
 \end{minipage}
 \end{defn}
 \begin{law}
@@ -259,7 +259,7 @@ S_1 = S_0 + \frac{\left(E_{s0\text{rev}}^R - E_{s1}^R\right)_{A_1 R_{s1} \unders
         is unavailable with respect to the reservoir, \textbf{the constant of proportionality} being \textbf{the  
         inverse of the temperature} of the reservoir.
         \begin{center}
-            \includegraphics[width=0.7\textwidth]{chap1/2.1.png}
+            \includegraphics[width=0.7\textwidth]{chap1/image/2.1.png}
         \end{center}
         \item additivity of entropy 
         \item exchangeability of entropy via interactions
@@ -370,7 +370,7 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
 \end{proposition}
 \begin{minipage}{0.8\textwidth}
     \centering
-    \includegraphics[width=0.75\textwidth]{chap1/3.1.png}
+    \includegraphics[width=0.75\textwidth]{chap1/image/3.1.png}
     \captionof{figure}{Representation of notSES and SES}
 \end{minipage}
 \begin{defn}
@@ -378,7 +378,7 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
 
 \begin{minipage}{0.8\textwidth}
     \centering
-    \includegraphics[width=0.5\textwidth]{chap1/3.2.png}
+    \includegraphics[width=0.5\textwidth]{chap1/image/3.2.png}
     \captionof{figure}{Special systems with upper bounded energy}
 \end{minipage}
 \end{defn}
@@ -444,6 +444,244 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
 \end{itemize}
     \end{add}
 \end{thm}
+\begin{thm}
+    Necessary conditions for mutual equilibrium
+
+    \begin{zhu}
+        Classification of Concavity
+        \par\indent
+        \textbf{Concave}: Concave (mathematical concavity, represented by $\leq$ 0 for second derivatives)
+        \par\indent
+        \textbf{Convex}: Convex (mathematical convexity, represented by $\geq$ 0 for second derivatives)        
+    \end{zhu}
+    If \( A \) and \( B \) are in Mutual Stable Equilibrium in states \( A_0 \) and \( B_0 \), then \( C_0 \) is a SES. 
+    Then, the Maximum Entropy Principle implies that \( C_1 \) cannot be a SES and therefore \( S^C_1 < S^C_0 \), 
+    i.e. the strict inequality:
+    \(S^C_1 - S^C_0 < 0\)
+    \begin{enumerate}
+        \item \textbf{Temperature and Pressure} Equality at Mutual Equilibrium
+        \begin{itemize}
+            \item From entropy additivity:
+        \begin{align*}
+                S^C_1 - S^C_0 &= (S^A_1 + S^B_1) - (S^A_0 + S^B_0) = (S^A_1 - S^A_0) + (S^B_1 - S^B_0)\\
+                &\approx \frac{1}{T^A_0} dE + \frac{p^A_0}{T^A_0} dV + \frac{1}{2} d^2_{E,V} S^A 
+                + \frac{1}{T^B_0} (-dE) + \frac{p^B_0}{T^B_0} (-dV) + \frac{1}{2} d^2_{E,V} S^B \\
+                &= \underbrace{\left( \frac{1}{T^A_0} - \frac{1}{T^B_0} \right)}_{=0} dE 
+                + \underbrace{\left( \frac{p^A_0}{T^A_0} - \frac{p^B_0}{T^B_0} \right)}_{=0} dV 
+                + \frac{1}{2} d^2_{E,V} S^A + \frac{1}{2} d^2_{E,V} S^B < 0
+        \end{align*}
+        \item For the inequality to hold for all choices of \( dE \) and \( dV \), 
+        the terms in brackets must be zero. Therefore, the second-order differentials must be non-positive, 
+        i.e. the fundamental relation is \textbf{concave} in \( E \) and \( V \):
+\begin{align*}
+            d_{E,V}^2 S &= \frac{\partial^2 S}{\partial E^2} (dE)^2 + 2 \frac{\partial^2 S}{\partial E \partial V} dEdV + \frac{\partial^2 S}{\partial V^2} (dV)^2 < 0
+            \\&\Rightarrow
+            \begin{cases} 
+            \frac{\partial^2 S}{\partial E^2} < 0 \qquad \frac{\partial^2 S}{\partial V^2} < 0 \\ 
+            \frac{\partial^2 S}{\partial E^2} \frac{\partial^2 S}{\partial V^2} - \left[ \frac{\partial^2 S}{\partial E \partial V} \right]^2 < 0 
+            \end{cases}
+\end{align*}
+\begin{zhu}
+    这里Beretta教授在幻灯片上写的是
+    \[
+        d_{E,V}^2 S = \frac{\partial^2 S}{\partial E^2} (dE)^2 + 2 \frac{\partial^2 S}{\partial E \partial V} dEdV + \frac{\partial^2 S}{\partial V^2} (dV)^2 \boxed{\leq} 0
+    \]
+    这是不合理的，方程中的“$\leq0$”应更正为“$<0$”，使得Hessian矩阵负定，确保所有方向扰动均使熵减少。
+
+    在热力学稳定性分析中，当两个系统 \( A \) 和 \( B \) 处于平衡时，总熵的二阶变化必须严格小于零（\(<0\)）以确保平衡的稳定性。
+    推导中第一个方程的总变化严格小于零是合理的，因为一阶项为零（平衡条件）后，二阶项之和必须负定（严格凹）。
+    然而，第二个方程中熵的二阶微分 \( d^2_{E,V} S \leq 0 \) 是熵作为一般凹函数的性质，允许半负定（如相变临界点）。
+    但在稳定性条件下，系统熵的二阶微分应严格负定（\(<0\)），若仅 \( \leq 0 \)，可能存在非零扰动使总变化为零，破坏稳定性。
+    
+    在“\textbf{Temperature and Potential} Equality at Mutual Equilibrium”部分中，同样存在类似的问题。我已对该问题进行统一修正，因此不再在相关位置逐一说明。
+\end{zhu}
+        \end{itemize}
+        \item \textbf{Temperature and Potential} Equality at Mutual Equilibrium
+        \begin{itemize}
+            \item From entropy additivity:
+            \begin{align*}
+                S^C_1 - S^C_0 &= (S^A_1 + S^B_1) - (S^A_0 + S^B_0) = (S^A_1 - S^A_0) + (S^B_1 - S^B_0)\\
+                &\approx \frac{1}{T^A_0} dE - \frac{\mu^A_{i0}}{T^A_0} dn_i + \frac{1}{2} d^2_{E,n_i} S^A
+                + \frac{1}{T^B_0} (-dE) - \frac{\mu^B_{i0}}{T^B_0} (-dn_i) + \frac{1}{2} d^2_{E,n_i} S^B\\
+                &= \underbrace{\left( \frac{1}{T^A_0} - \frac{1}{T^B_0} \right)}_{=0} dE + \underbrace{\left( \frac{\mu^B_{i0}}{T^B_0} 
+                - \frac{\mu^A_{i0}}{T^A_0} \right)}_{=0} dn_i + \frac{1}{2} d^2_{E,n_i} S^A + \frac{1}{2} d^2_{E,n_i} S^B < 0
+            \end{align*}
+                \item For the inequality to hold for all choices of \( dE \) and \( dn_i \), 
+                the terms in brackets must be zero. Therefore, the second-order differentials must be non-positive, 
+                i.e. the fundamental relation is \textbf{concave} in \( E \) and \( n_i \):          
+\begin{align*}
+                d^2_{E,n_i} S &= \frac{\partial^2 S}{\partial E^2} (dE)^2 + 2 \frac{\partial^2 S}{\partial E \partial n_i} dEdn_i + \frac{\partial^2 S}{\partial n_i^2} (dn_i)^2 < 0\\
+                &\Rightarrow
+                \begin{cases} 
+                \frac{\partial^2 S}{\partial E^2} < 0 \qquad \frac{\partial^2 S}{\partial n_i^2} < 0 \\ 
+                \frac{\partial^2 S}{\partial E^2} \frac{\partial^2 S}{\partial n_i^2} - \left[ \frac{\partial^2 S}{\partial E \partial n_i} \right]^2 < 0 
+                \end{cases}
+\end{align*}
+        \end{itemize}
+    \item Concavity of the fundamental relation (introducing the Hessian matrix)
+
+    The fundamental relation is \textbf{concave} in all its independent variables, 
+    i.e. in any SES the Hessian of the fundamental relation \( S = S(E, n, V) \) 
+    is a negative semidefinite matrix:
+    \[
+    \text{Hessian}(S) =
+    \begin{bmatrix}
+    \frac{\partial^2 S}{\partial E^2} & \frac{\partial^2 S}{\partial E \partial n_1} & \cdots & \frac{\partial^2 S}{\partial E \partial n_r} & \frac{\partial^2 S}{\partial E \partial V} \\
+    \frac{\partial^2 S}{\partial n_1 \partial E} & \frac{\partial^2 S}{\partial n_1^2} & \cdots & \frac{\partial^2 S}{\partial n_1 \partial n_r} & \frac{\partial^2 S}{\partial n_1 \partial V} \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    \frac{\partial^2 S}{\partial n_r \partial E} & \frac{\partial^2 S}{\partial n_r \partial n_1} & \cdots & \frac{\partial^2 S}{\partial n_r^2} & \frac{\partial^2 S}{\partial n_r \partial V} \\
+    \frac{\partial^2 S}{\partial V \partial E} & \frac{\partial^2 S}{\partial V \partial n_1} & \cdots & \frac{\partial^2 S}{\partial V \partial n_r} & \frac{\partial^2 S}{\partial V^2}
+    \end{bmatrix}
+    \]
+    \[
+    d^2 S_{E,n,V} = (dE, dn_1, \ldots, dn_r, dV) \cdot \text{Hessian}(S) \cdot (dE, dn_1, \ldots, dn_r, dV)^T \leq 0
+    \]
+\end{enumerate}
+    \begin{add}
+    基本关系 $S = S(E, n, V)$ 的凹性推论
+\begin{enumerate}
+  \item \textbf{熵极大值原理}：平衡态熵 $S$ 达极大值，Hessian 负半定保证全局极大，即
+        \[
+          d^2 S \leq 0 \quad \forall \, (dE, dn_1, \dots, dn_r, dV) \neq \vec{0}
+        \]
+  \item \textbf{热力学稳定性条件}：
+        \[
+          \frac{\partial^2 S}{\partial E^2} \leq 0 \Rightarrow C_V \geq 0 \qquad
+          \frac{\partial^2 S}{\partial n_i^2} \leq 0 \Rightarrow \left(\frac{\partial \mu_i}{\partial n_i}\right)_{\!T,V} \leq 0 \qquad
+          \frac{\partial^2 S}{\partial V^2} \leq 0 \Rightarrow \kappa_T \geq 0
+        \]
+  \item \textbf{Le Chatelier 原理}：
+    从熵的凹性 \( S = S(E, V, n) \) 出发，Hessian 矩阵负半定：
+    \[
+    d^2 S = \sum_{i,j} \frac{\partial^2 S}{\partial x_i \partial x_j} dx_i dx_j \leq 0 \quad (x = (E, \vec{n}, V))
+    \]
+    对扰动 \( dE \) 和响应 \( dT \)：
+    \[
+    \frac{\partial}{\partial E} \left( \frac{1}{T} \right) = -\frac{1}{T^2} \frac{\partial T}{\partial E} 
+    = \frac{\partial^2 S}{\partial E^2} \leq 0 \quad \Rightarrow \quad \frac{\partial T}{\partial E} \geq 0
+    \]
+    系统响应削弱扰动，如
+        \[
+          dV < 0 \Rightarrow dP > 0 \qquad dE > 0 \Rightarrow dT > 0
+        \]
+  \item \textbf{热力学势凸性}：通过 Legendre 变换，熵的凹性可以转化为其他热力学势的凸性
+        \[
+          U(S,V,n)\text{ 凸}\qquad F(T,V,n)\text{ 凹}\qquad G(T,P,n)\text{ 凹}
+        \]
+  \item \textbf{热力学极限存在性}：熵凹性保证宏观极限下热力学量（如 $S$, $U$）存在且唯一。
+\end{enumerate}
+    \end{add}
+\end{thm}
+\begin{example}
+    Surface tension and Young-Laplace equation
+
+    If \( B, C, D \) are in MSE in states \( B_0, C_0, D_0 \), then \( F_0 \) is a SES. 
+    Then, the MEP implies that \( F_1 \) cannot be a SES and therefore \( S^F_1 < S^F_0 \), 
+    i.e. the strict inequality:
+    \(
+    S^F_1 - S^F_0 < 0
+    \)
+\begin{itemize}
+    \item From entropy additivity:
+    \begin{gather*}
+        \text{Assuming}\quad T_0^B = T_0^C = T_0^D = T_0 \qquad dE^B + dE^C + dE^D = 0 \\
+        \mu_{i0}^B = \mu_{i0}^C = \mu_{i0}^D = \mu_{i0} \qquad 
+        dm_i^B + dm_i^C + dm_i^D = 0 \;,\; \forall i \qquad
+        dV^B = -dV^D
+    \end{gather*}
+\begin{align*}
+        S^F_1 - S^F_0 &= (S^B_1 + S^C_1 + S^D_1) - (S^B_0 + S^C_0 + S^D_0) \\
+        &= (S^B_1 - S^B_0) + (S^C_1 - S^C_0) + (S^D_1 - S^D_0)\\
+        &= \frac{1}{T^B_0} dE^B + \frac{p^B_0}{T^B_0} dV^B 
+        + \frac{1}{T^C_0} dE^C - \frac{\sigma^C_0}{T^C_0} dA^C 
+        + \frac{1}{T^D_0} dE^D + \frac{p^D_0}{T^D_0} dV^D +\cdots \\
+        &= \frac{1}{T_0} \left[ (p^D_0 - p^B_0) dV^D - \sigma^C_0 dA^C \right] + \cdots < 0
+\end{align*}
+    \item Assuming \( C \) has spherical shape of radius \( R \):
+    \[
+    p^D_0 - p^B_0 = \frac{2\sigma^C_0}{R}
+    \]
+    \item Assuming \( C \) has cylindrical shape of radius \( R \) and length \( L \):
+    \[
+    p^D_0 - p^B_0 = \frac{\sigma^C_0}{R}
+    \]
+    \item Assuming small local displacement \( de = de|_{\theta_1,\theta_2} \),
+\begin{gather*}
+        A^C = \iint_C R_1R_2 \, d\theta_1 \, d\theta_2 \quad dV^D 
+        = \iint_C R_1R_2 \, de \, d\theta_1 \, d\theta_2\\
+        dA^C = \iint_C [(R_1 + de)(R_2 \pm de) - R_1R_2] \, d\theta_1 \, d\theta_2 
+        \approx \iint_C (\pm R_1 + R_2) \, de \, d\theta_1 \, d\theta_2\\
+        \Downarrow\\
+        \iint_C [(\rho_0^D - p_0^B) \, R_1R_2 - \sigma_0^C (\pm R_1 + R_2)]_{\theta_1,\theta_2} \, de 
+        \, d\theta_1 \, d\theta_2 = 0 \quad \forall de\\
+        \Downarrow\\
+\left[ \frac{1}{R_1} \pm \frac{1}{R_2} \right]_{\theta_1, \theta_2} = \frac{p_0^D - p_0^B}{\sigma_0^C}
+\\ \Downarrow\\
+        p_0^D - p_0^B = 
+        \sigma_0^C \left[ \frac{1}{R_1} \pm \frac{1}{R_2} \right]_{\theta_1, \theta_2}
+\end{gather*}
+\end{itemize}
+\end{example}
+\begin{thm}
+    Clausius inequality
+\begin{itemize}
+    \item infinitesimal transfers
+\[
+\frac{\delta E^{A \rightarrow B}}{T_1^A} \leq \delta S^{A \rightarrow B} - \delta S_{\text{irr}}^A \leq \delta S^{A \rightarrow B} \leq \delta S^{A \rightarrow B} + \delta S_{\text{irr}}^B \leq \frac{\delta E^{A \rightarrow B}}{T_1^B}
+\;\text{irr:=irreversible process}
+\]
+\begin{center}
+    \includegraphics*[width=0.6\textwidth]{chap1/image/3.3.png}
+\end{center}
+    \item finite transfers
+    
+    Systems \( A \) and \( B \) are initially in SES and interact directly without other effects by 
+    exchanging a finite amount \( E^{A \to B} \) of energy. Such exchange can occur only if 
+    there is also an entropy \( S^{A \to B} \) transfer, at least \( S^{A \to B} |_{\min} \) but 
+    no more than \( S^{A \to B} |_{\max} \).
+    \[
+    S_{\text{SES}}^B (E_1^B + E_2^{A \to B}, V^B, n^B) - S_1^B \leq S_2^{A \to B} 
+    \leq S_1^A - S_{\text{SES}}^A (E_1^A - E_2^{A \to B}, V^A, n^A)
+    \]
+    \begin{center}
+        \includegraphics*[width=0.6\textwidth]{chap1/image/3.4.png}
+    \end{center}
+\end{itemize}
+\end{thm}
+\section{lecture 5}
+\begin{defn}
+    Types of interactions
+
+    \begin{itemize}
+        \item \textbf{Work interaction}: when energy is exchanged with no exchange of 
+        \textbf{entropy} nor amounts of \textbf{constituents}. 
+        \item \textbf{Adiabatic process}: a process whereby the system experiences \textbf{only work interactions}.
+        \item \textbf{Non-work interaction}: there is an exchange of \textbf{entropy} or \textbf{constituents}. 
+        \item \textbf{Non-adiabatic process}: there are some \textbf{non-work interactions}.
+        \item \textbf{Heat interaction}: a limiting case of \textbf{a non-work interaction with no exchange of constituents} 
+        in which the energy exchanged is entirely distinguishable from work. It occurs between two systems initially in 
+        stable equilibrium states with an exchange of both energy and entropy between the two systems, 
+        such that the exchanged energy is called heat.
+
+        The max fraction of the exchanged energy that can be separated as \textbf{work is negligible} (\(< 1\)) only 
+        in the limit \( T_1^A \rightarrow T_1^B \) that is if:
+    \(
+    \frac{T_1^A - T_1^B}{T_1^A} \ll 1
+    \).
+    \end{itemize}
+\end{defn}
+\begin{example}
+    First and second law 
+    efficiency
+     in
+     heat engines,
+     heat pumps and
+    refrigeration
+\end{example}
+
+
+
+
 
 
 

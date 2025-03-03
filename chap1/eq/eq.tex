@@ -1,0 +1,328 @@
+\ifx\allfiles\undefined
+\documentlecture[12pt, a4paper, oneside, UTF8]{ctexbook}  %  这一句是新增加的
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}   % 数学公式
+\usepackage{graphicx}
+\usetikzlibrary{arrows, calc, decorations.pathmorphing}
+\allowdisplaybreaks % 允许公式跨页换行
+\newcommand{\pa}{\partial}
+\newcommand{\mathminus}{\!\!-\!\!} % 数学环境连字符
+\newcommand{\vsup}[1]{\raisebox{-0.1ex}{$\scriptstyle #1$}}
+\newcommand{\lsup}[1]{\raisebox{-0.85ex}{$\scriptstyle #1$}}
+\definecolor{b1}{RGB}{0,191,255}
+
+
+
+\begin{document}
+%\input{/config/cover} % 单独编译时，其实不用编译封面目录之类的，如需要不注释这句即可
+\else
+\fi
+%  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 正文部分
+\section{偏微分形式的热力学恒等式}
+本节为补充内容，相关推导过程参考了知乎用户 \href{https://zhuanlan.zhihu.com/p/622282265}{Harogenshi} 
+和 \href{https://zhuanlan.zhihu.com/p/115068655}{mosekyo} 的文章，特此致谢。
+
+\begin{lemma}
+\begin{itemize}
+    偏导数之间的运算规则
+    \item 倒数法则 (INV)
+    \[
+    \left( \frac{\partial X}{\partial Y} \right)_Z \left( \frac{\partial Y}{\partial X} \right)_Z = 1
+    \]    
+    \item 三元轮换法则 (TRI)
+    \[
+    \left( \frac{\partial X}{\partial Y} \right)_Z \left( \frac{\partial Y}{\partial Z} \right)_X \left( \frac{\partial Z}{\partial X} \right)_Y = -1
+    \]
+    \item 复合法则 (CP)
+    \[
+    \left( \frac{\partial X}{\partial Y} \right)_Z = \left( \frac{\partial X}{\partial A} \right)_B \left( \frac{\partial A}{\partial Y} \right)_Z + \left( \frac{\partial X}{\partial B} \right)_A \left( \frac{\partial B}{\partial Y} \right)_Z
+    \]
+    \begin{itemize}
+        \item  (CP1 \( B = Z \) )
+        \[
+        \left( \frac{\partial X}{\partial Y} \right)_Z = \left( \frac{\partial X}{\partial A} \right)_Z \left( \frac{\partial A}{\partial Y} \right)_Z
+        \]
+        \item  (CP2 \( B = Y \) )
+        \[
+        \left( \frac{\partial X}{\partial Y} \right)_Z =  
+        \left( \frac{\partial X}{\partial A} \right)_Y \left( \frac{\partial A}{\partial Y} \right)_Z
+        +\left( \frac{\partial X}{\partial Y} \right)_A
+        \]
+    \end{itemize}
+\end{itemize}
+\end{lemma}
+\begin{corollary}
+    用大写字母表示
+\(E or U\)、
+\(H\)、
+\(S\)、
+\(A or F\)、
+\(G\)，用小写字母表示
+\(p\)、
+\(V\)、
+\(T\)。
+    \begin{itemize}
+        \item \[
+        \left(\frac{\pa b }{\pa a}\right)_Z=-\frac{1}
+        {\left(\frac{\pa a}{\pa Z}\right)_b\left(\frac{\pa Z}{\pa b}\right)_a}
+        =-\frac{\left(\frac{\pa Z}{\pa a}\right)_b}{\left(\frac{\pa Z}{\pa b}\right)_a}\]
+        \item \[
+        \left(\frac{\pa X}{\pa Y}\right)_a=\left(\frac{\pa X}{\pa b}\right)_a 
+        \left(\frac{\pa b}{\pa Y}\right)_a 
+        =\frac{\left(\frac{\pa X}{\pa b}\right)_a }
+        {\left(\frac{\pa Y}{\pa b}\right)_a }\]
+        \item \[
+        \left(\frac{\pa X}{\pa a}\right)_Y =\left(\frac{\pa X}{\pa a}\right)_b 
+        +\left(\frac{\pa X}{\pa b}\right)_a\left(\frac{\pa b}{\pa a}\right)_Y
+        =\left(\frac{\pa X}{\pa a}\right)_b 
+        +\left(\frac{\pa X}{\pa b}\right)_a
+        -\frac{\left(\frac{\pa Y}{\pa a}\right)_b}{\left(\frac{\pa Y}{\pa b}\right)_a}\]
+        \item 
+\begin{align*}
+            \left(\frac{\pa X}{\pa Y}\right)_Z 
+            &=\left( \frac{\partial X}{\partial a} \right)_Z \left( \frac{\partial a}{\partial Y} \right)_Z\\
+            &=\left(\left(\frac{\pa X}{\pa a}\right)_b 
+            +\left(\frac{\pa X}{\pa b}\right)_a
+            -\frac{\left(\frac{\pa Z}{\pa a}\right)_b}{\left(\frac{\pa Z}{\pa b}\right)_a} \right)
+            \left( \frac{1}{
+                \left(\frac{\pa Y}{\pa a}\right)_b 
+        +\left(\frac{\pa Y}{\pa b}\right)_a
+        -\frac{\left(\frac{\pa Z}{\pa a}\right)_b}{\left(\frac{\pa Z}{\pa b}\right)_a}
+            }\right)
+\end{align*}
+            \begin{center}
+                \includegraphics*[width=0.4\textwidth]{chap1/image/eq.1.jpg}
+            \end{center}
+            综合上述公式，我们可以把所有的偏微分关系式化成一阶的关系式
+            \(\left(\frac{\pa X}{\pa a}\right)_b\)
+    \end{itemize}
+\end{corollary}
+\begin{example}
+    \(U\)的偏微分关系
+    \begin{enumerate}
+        \item \[\left(\frac{\pa U}{\pa T}\right)_V =C_V
+        \]
+        \hrule
+        \item\label{1.2} \[\left(\frac{\pa U}{\pa p}\right)_V
+        \overset{CP1}{=}\left(\frac{\pa U}{\pa T}\right)_V\left(\frac{\pa T}{\pa V}\right)_V
+        =C_V\left(\frac{\pa T}{\pa p}\right)_V
+        \]
+        \hrule
+        \item\label{1.3} \[\left(\frac{\pa U}{\pa T}\right)_p
+        =\left(\frac{\pa H}{\pa T}\right)_p
+        -p\left(\frac{\pa H}{\pa T}\right)_p
+        =C_p -p\left(\frac{\pa V}{\pa T}\right)_p
+        \]
+        \hrule
+        \item\label{1.4} \[\left(\frac{\pa U}{\pa V}\right)_p=
+        \left(\frac{\pa U}{\pa T}\right)_p\left(\frac{\pa T}{\pa V}\right)_p
+        \overset{\ref*{1.3}}{=}
+        C_p \left(\frac{\pa T}{\pa V}\right)_p-p\left(\frac{\pa V}{\pa T}\right)_p\left(\frac{\pa T}{\pa V}\right)_p
+        =C_p \left(\frac{\pa T}{\pa V}\right)_p-p
+        \]
+        \hrule
+        \item\label{1.5} \begin{align*}
+            \left(\frac{\pa U}{\pa V}\right)_T 
+            &\overset{CP2}{=}\left(\frac{\pa U}{\pa V}\right)_p+
+            \left(\frac{\pa U}{\pa p}\right)_V\left(\frac{\pa p}{\pa V}\right)_T\\
+            &\overunderset{\ref*{1.2}}{\ref*{1.4}}{=}
+            C_p\left(\frac{\pa T}{\pa V}\right)_p-p+C_V 
+            \left(\frac{\pa T}{\pa p}\right)_V\left(\frac{\pa p}{\pa V}\right)_T \\
+            &\overset{TRI}{=}C_p\left(\frac{\pa T}{\pa V}\right)_p-p -C_V 
+            \left(\frac{\pa T}{\pa V}\right)_p \\
+            &=(C_p-C_V)\left(\frac{\pa T}{\pa V}\right)_p-p
+        \end{align*}
+        \hrule
+        \item \begin{align*}
+            \left(\frac{\pa U}{\pa p}\right)_T
+            &\overset{INV}{=}\left(\frac{\pa U}{\pa V}\right)_T\left(\frac{\pa V}{\pa p}\right)_T\\
+            &\overunderset{\ref*{1.5}}{TRI}{=}
+            -(C_p-C_V)\left(\frac{\pa T}{\pa p}\right)_V-p\left(\frac{\pa V}{\pa p}\right)_T
+        \end{align*}
+    \end{enumerate}
+\end{example}
+\begin{example}
+    \( H \) 的偏微分关系
+    \begin{enumerate}
+        \item \[\left(\frac{\partial H}{\partial T}\right)_p = C_p \]
+        \hrule
+        \item\label{2.2} \[\left(\frac{\partial H}{\partial V}\right)_p 
+        \overset{CP1}{=} \left(\frac{\partial H}{\partial T}\right)_p \left(\frac{\partial T}{\partial V}\right)_p 
+        = C_p \left(\frac{\partial T}{\partial V}\right)_p 
+        \]
+        \hrule
+        \item\label{2.3} \begin{align*}
+        \left(\frac{\partial H}{\partial p}\right)_T 
+        = \left(\frac{\partial U}{\partial p}\right)_T 
+        + \left(\frac{\partial (pV)}{\partial p}\right)_T 
+        &= \left(\frac{\partial U}{\partial p}\right)_T 
+        + V + p\left(\frac{\partial V}{\partial p}\right)_T \\
+        &=V-(C_p-C_V)\left(\frac{\pa T}{\pa p}\right)_V
+        \end{align*}
+        \hrule
+        \item\label{2.4} \begin{align*}
+            \left(\frac{\partial H}{\partial T}\right)_V 
+            \overset{CP2}{=} \left(\frac{\partial H}{\partial T}\right)_p 
+            + \left(\frac{\partial H}{\partial p}\right)_T \left(\frac{\partial p}{\partial T}\right)_V 
+            &\overset{\ref*{2.3}}{=} C_p + \left[ V 
+            + p\left(\frac{\partial V}{\partial p}\right)_T \right]
+            \left(\frac{\partial p}{\partial T}\right)_V \\
+            &=C_V + V\left(\frac{\pa p}{\pa T}\right)_V
+        \end{align*}
+        \hrule
+        \item\label{2.5} \begin{align*}
+            \left(\frac{\partial H}{\partial V}\right)_T 
+            &\overset{CP2}{=} \left(\frac{\partial H}{\partial V}\right)_p 
+            + \left(\frac{\partial H}{\partial p}\right)_V \left(\frac{\partial p}{\partial V}\right)_T \\
+            &\overunderset{\ref*{2.2}}{\ref*{2.3}}{=} 
+            C_p \left(\frac{\partial T}{\partial V}\right)_p 
+            + \left[ V + p\left(\frac{\partial V}{\partial p}\right)_T \right] 
+            \left(\frac{\partial p}{\partial V}\right)_T \\
+            &\overset{TRI}{=}V\left(\frac{\partial p}{\partial V}\right)_T
+            +(C_p-C_V)\left(\frac{\partial T}{\partial V}\right)_p
+        \end{align*}
+        \hrule
+        \item \begin{align*}
+            \left(\frac{\partial H}{\partial p}\right)_V 
+            \overset{CP1}{=} \left(\frac{\partial H}{\partial T}\right)_V 
+            \left(\frac{\partial T}{\partial p}\right)_V 
+            &\overset{\ref*{2.4}}{=} 
+            \left[ C_p + \left( V + p\left(\frac{\partial V}{\partial p}\right)_T \right) 
+            \left(\frac{\partial p}{\partial T}\right)_V \right] 
+            \left(\frac{\partial T}{\partial p}\right)_V \\
+            &=C_V + V\left(\frac{\pa p}{\pa T}\right)_V
+        \end{align*}
+    \end{enumerate}
+\end{example}
+\begin{example}
+    \( S \) 的偏微分关系
+    \begin{enumerate}
+        \item\label{3.1} \[\left(\frac{\partial S}{\partial T}\right)_V 
+        =\left(\frac{\pa S}{\pa U}\right)_V\left(\frac{\pa U}{\pa T}\right)_V
+        = \frac{C_V}{T} 
+        \]\hrule
+        \item\label{3.2} \[\left(\frac{\partial S}{\partial T}\right)_p 
+        =\left(\frac{\pa S}{\pa H}\right)_p\left(\frac{\pa H}{\pa T}\right)_p
+        = \frac{C_p}{T} 
+        \]\hrule
+        \item\label{3.3} \[\left(\frac{\partial S}{\partial V}\right)_T 
+        \overset{\text{Maxwell}}{=} \left(\frac{\partial p}{\partial T}\right)_V \quad (\text{由}  dA = -S dT - p dV ) \]
+        \hrule
+        \item\label{3.4} \[\left(\frac{\partial S}{\partial p}\right)_T 
+        \overset{\text{Maxwell}}{=} -\left(\frac{\partial V}{\partial T}\right)_p \quad (\text{由}  dG = -S dT + V dp ) \]
+        \hrule
+        \item\label{3.5} \begin{align*}
+            \left(\frac{\partial S}{\partial V}\right)_p 
+            \overset{CP1}{=} \left(\frac{\partial S}{\partial T}\right)_p \left(\frac{\partial T}{\partial V}\right)_p
+            \overunderset{\ref*{3.2}}{\ref*{3.3}}{=} 
+            \frac{C_p}{T} \left(\frac{\partial T}{\partial V}\right)_p  
+        \end{align*}
+        \hrule
+        \item\label{3.6} \begin{align*}
+            \left(\frac{\partial S}{\partial p}\right)_V 
+            \overset{CP1}{=} \left(\frac{\partial S}{\partial T}\right)_V \left(\frac{\partial T}{\partial p}\right)_V
+            \overunderset{\ref*{3.1}}{\ref*{3.4}}{=} 
+            \frac{C_V}{T} \left(\frac{\partial T}{\partial p}\right)_V
+        \end{align*}
+    \end{enumerate}
+\end{example}
+\begin{example}
+    \( A \) 的偏微分关系
+    \begin{enumerate}
+        \item\label{4.1} \[\left(\frac{\partial A}{\partial T}\right)_V = -S \quad (\text{由} \ dA = -S dT - p dV ) \]
+        \hrule
+        \item\label{4.2} \[\left(\frac{\partial A}{\partial V}\right)_T = -p \quad (\text{由} \ dA = -S dT - p dV ) \]
+        \hrule
+        \item\label{4.3} \begin{align*}
+            \left(\frac{\partial A}{\partial p}\right)_V 
+            \overset{CP1}{=} \left(\frac{\partial A}{\partial T}\right)_V 
+            \left(\frac{\partial T}{\partial p}\right)_V 
+            \overset{\ref*{4.1}}{=} -S \left(\frac{\partial T}{\partial p}\right)_V
+        \end{align*}
+        \hrule
+        \item\label{4.4} \begin{align*}
+            \left(\frac{\partial A}{\partial p}\right)_T 
+            \overset{CP1}{=} \left(\frac{\partial A}{\partial V}\right)_T 
+            \left(\frac{\partial V}{\partial p}\right)_T 
+            \overset{\ref*{4.2}}{=} -p \left(\frac{\partial V}{\partial p}\right)_T
+        \end{align*}
+        \hrule
+        \item\label{4.5} \begin{align*}
+            \left(\frac{\partial A}{\partial T}\right)_p 
+            &\overset{CP2}{=} \left(\frac{\partial A}{\partial T}\right)_V 
+            + \left(\frac{\partial A}{\partial V}\right)_T 
+            \left(\frac{\partial V}{\partial T}\right)_p \\
+            &\overunderset{\ref*{4.1}}{\ref*{4.2}}{=} -S -p \left(\frac{\partial V}{\partial T}\right)_p
+        \end{align*}
+        \hrule
+        \item\label{4.6} \begin{align*}
+            \left(\frac{\partial A}{\partial T}\right)_p 
+            &\overset{CP2}{=} \left(\frac{\partial A}{\partial T}\right)_V 
+            \left(\frac{\partial T}{\partial V}\right)_p
+            + \left(\frac{\partial A}{\partial V}\right)_T  \\
+            &\overunderset{\ref*{4.1}}{\ref*{4.2}}{=} 
+            -S\left(\frac{\partial T}{\partial V}\right)_p -p 
+        \end{align*}
+    \end{enumerate}
+\end{example}
+\begin{example}
+    \( G \) 的偏微分关系
+    \begin{enumerate}
+        \item\label{5.1} \[\left(\frac{\partial G}{\partial T}\right)_p = -S \quad (\text{由} \ dG = -S dT + V dp ) \]
+        \hrule
+        \item\label{5.2} \[\left(\frac{\partial G}{\partial p}\right)_T = V \quad (\text{由} \ dG = -S dT + V dp ) \]
+        \hrule
+        \item\label{5.3} \begin{align*}
+            \left(\frac{\partial G}{\partial V}\right)_P 
+            \overset{CP1}{=} \left(\frac{\partial G}{\partial T}\right)_p 
+            \left(\frac{\partial T}{\partial V}\right)_p 
+            \overset{\ref*{5.1}}{=} -S \left(\frac{\partial p}{\partial V}\right)_T
+        \end{align*} 
+        \hrule
+        \item\label{5.4} \begin{align*}
+            \left(\frac{\partial G}{\partial V}\right)_T 
+            \overset{CP1}{=} \left(\frac{\partial G}{\partial p}\right)_T 
+            \left(\frac{\partial p}{\partial V}\right)_T 
+            \overset{\ref*{5.2}}{=} V \left(\frac{\partial p}{\partial V}\right)_T
+        \end{align*}
+        \hrule
+        \item\label{5.5} \begin{align*}
+            \left(\frac{\partial G}{\partial T}\right)_V 
+            &\overset{CP2}{=} \left(\frac{\partial G}{\partial T}\right)_p 
+            + \left(\frac{\partial G}{\partial p}\right)_T 
+            \left(\frac{\partial p}{\partial T}\right)_V \\
+            &\overunderset{\ref*{5.1}}{\ref*{5.2}}{=} 
+            -S + V \left(\frac{\partial p}{\partial T}\right)_V
+        \end{align*}
+        \hrule
+        \item\label{5.6} \begin{align*}
+            \left(\frac{\partial G}{\partial T}\right)_V 
+            &\overset{CP2}{=} \left(\frac{\partial G}{\partial T}\right)_p 
+            \left(\frac{\partial T}{\partial p}\right)_V
+            + \left(\frac{\partial G}{\partial p}\right)_T \\
+            &\overunderset{\ref*{5.1}}{\ref*{5.2}}{=} 
+            -S\left(\frac{\partial T}{\partial p}\right)_V + V 
+        \end{align*}
+    \end{enumerate}
+\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 正文部分
+\ifx\allfiles\undefined
+\end{document}
+\fi

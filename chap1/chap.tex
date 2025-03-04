@@ -678,12 +678,233 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
      heat pumps and
     refrigeration
 \end{example}
+\begin{defn}
+    Definitions of other SES properties and their respective relations 
+    in terms of \( p, V, T, C_v, C_p, \gamma = \frac{C_p}{C_v}, \kappa_T, \alpha_P \).
+\begin{itemize}
+\item 
+\textbf{The Mayer relation} is defined as the difference 
+between the heat capacities at constant pressure and constant volume.
+\begin{align*}
+C_p - C_v &=\left( \frac{\partial H}{\partial T} \right)_{p, \vec{n}}
+-\left( \frac{\partial E}{\partial T} \right)_{V, \vec{n}}\\
+&= \left( \frac{\partial E}{\partial T} \right)_{p, \vec{n}} 
++ \left( \frac{\partial (pV)}{\partial T} \right)_{p, \vec{n}} 
+- \left( \frac{\partial E}{\partial T} \right)_{V, \vec{n}} \\
+&= \left( \frac{\partial E}{\partial T} \right)_{p, \vec{n}} 
++ p \left( \frac{\partial V}{\partial T} \right)_{p, \vec{n}} 
+- \left( \frac{\partial E}{\partial T} \right)_{V, \vec{n}} \\
+&= \left( \frac{\partial E}{\partial T} \right)_{V, \vec{n}} + 
+\left( \frac{\partial E}{\partial V} \right)_{T, \vec{n}} 
+\left( \frac{\partial V}{\partial T} \right)_{p, \vec{n}} 
+-\left( \frac{\partial E}{\partial T} \right)_{V, \vec{n}}
++ p \left( \frac{\partial V}{\partial T} \right)_{p, \vec{n}} \\
+&= \left(\left( \frac{\partial E}{\partial V} \right)_{T, \vec{n}} 
++ p \right)\left( \frac{\partial V}{\partial T} \right)_{p, \vec{n}} 
+= \left( -p + T \left( \frac{\partial p}{\partial T} \right)_V \right) \left( \frac{\partial V}{\partial T} \right)_{p, \vec{n}} 
++ p \left( \frac{\partial V}{\partial T} \right)_{p, \vec{n}} \\
+&= \boxed{T \left( \frac{\partial V}{\partial T} \right)_p 
+\left( \frac{\partial p}{\partial T} \right)_V }
+=\boxed{- T \left( \frac{\partial V}{\partial T} \right)_p 
+\frac{\left( \frac{\partial V}{\partial T} \right)_p}
+{\left( \frac{\partial V}{\partial p} \right)_T}} 
+=\boxed{\frac{TV \alpha_p^2}{\kappa_T}}
+\end{align*}
+\item 
+\textbf{The Joule-Thomson coefficient} \(\mu_{JT}\) is given by:
+\begin{align*}
+    \mu_{JT} &= \left( \frac{\partial T}{\partial p} \right)_H \\
+&\boxed{\begin{gathered}
+    \because \; dH = T \left( \frac{C_p}{T} dT - 
+    \left( \frac{\partial V}{\partial T} \right)_p dp \right) + V dp=0
+    \\\therefore\; 
+    C_p dT = \left( T \left( \frac{\partial V}{\partial T} \right)_p - V \right) dp
+\end{gathered}}
+    \\&= \frac{1}{C_p} \left( T \left( \frac{\partial V}{\partial T} \right)_p - V \right) \\
+    &= \frac{V}{C_p} (\alpha_p T - 1)
+\end{align*}
+\item \[ \alpha_p = \frac{1}{V} \left(\frac{\partial V}{\partial T}\right)_{p,n} 
+\qquad \kappa_T = -\frac{1}{V} \left(\frac{\partial V}{\partial p}\right)_{T,n} \]
+\begin{itemize}
+    \item \textbf{The coefficient of isobaric expansion} \(\alpha_p\)expresses the percentage increase 
+    in volume resulting from an increase in temperature at constant pressure.
+    \item \textbf{The coefficient of isothermal compressibility} \(\kappa_T\)expresses the percentage reduction 
+    in volume resulting from an increase in pressure at constant temperature.
+\end{itemize}
+\item
+\textbf{The isentropic compressibility} \(\kappa_s\) is defined as:
+\begin{align*}
+\kappa_s = -\frac{1}{V} \left( \frac{\partial V}{\partial p} \right)_S
+= \frac{1}{\gamma} \kappa_T \quad \text{where}\; \gamma = \frac{C_p}{C_v}.
+\end{align*}
+\begin{tui}
+\begin{align*}
+    \left(\frac{\pa V}{\pa p}\right)_S&=\left(\frac{\pa V}{\pa p}\right)_T
+    +\left(\frac{\pa V}{\pa T}\right)_p\left(\frac{\pa T}{\pa p}\right)_S\\
+    &=\left(\frac{\pa V}{\pa p}\right)_T+\left(\frac{\pa V}{\pa T}\right)_p
+    \left(-\frac{\left(\frac{\pa S}{\pa p}\right)_T}
+    {\left(\frac{\pa S}{\pa T}\right)_p}\right)\\
+    &=\left(\frac{\pa V}{\pa p}\right)_T+\left(\frac{\pa V}{\pa T}\right)_p
+    \frac{T}{C_p}\left(\frac{\pa V}{\pa T}\right)_p 
+\end{align*}
+\begin{gather*}
+\because \; C_p-C_V= - T \left( \frac{\partial V}{\partial T} \right)_p 
+\frac{\left( \frac{\partial V}{\partial T} \right)_p}
+{\left( \frac{\partial V}{\partial p} \right)_T}\\
+\therefore \; \frac{\left( \frac{\partial V}{\partial p} \right)_T}
+{\left( \frac{\partial V}{\partial p} \right)_S}
+=\frac{1}{1-\frac{C_p-C_V}{C_p}}=\frac{C_p}{C_V}
+\end{gather*}
+\end{tui}
+\item 
+\textbf{The speed of sound} \(c\) in a medium is given by:
+\begin{align*}
+    c &= \sqrt{\left( \frac{\partial p}{\partial \rho} \right)_S} 
+    = \sqrt{\left( \frac{\partial p}{\partial V} \right)_S \left( \frac{\partial V}{\partial \rho} \right)_S} 
+    = \sqrt{-\frac{1}{\rho^2} \left( \frac{\partial p}{\partial V} \right)_S}
+    \qquad \frac{\partial V}{\partial \rho} = -\frac{1}{\rho^2} \\
+    &= \sqrt{-\frac{1}{\rho^2} \left( -\frac{1}{V \kappa_s} \right)} 
+    \qquad \kappa_s = -\frac{1}{V} \left( \frac{\partial V}{\partial p} \right)_S \\
+    &= \sqrt{\frac{1}{\rho \kappa_s}} =\sqrt{\frac{\gamma}{\rho \kappa_T}}
+\end{align*}
+\item
+\textbf{The Joule coefficient} \(\eta\) is defined as:
+\begin{align*}
+\eta &= \left( \frac{\partial T}{\partial V} \right)_U 
+=-\frac{\left(\frac{\pa E}{\pa V}\right)_T}{\left(\frac{\pa E}{\pa T}\right)_V}
+= -\frac{1}{C_v} \left( \frac{\partial E}{\partial V} \right)_T \\
+&= \frac{1}{C_v} \left( p - T \left( \frac{\partial p}{\partial T} \right)_V \right) \\
+&= \frac{p\kappa_T - T\alpha_P}{C_v\kappa_T}
+\end{align*}
+\end{itemize}
+\end{defn}
+\begin{example}
+    \begin{yzh}
+        These properties (\(\alpha_p,\kappa_T,C_p,\mu_i\)) are defined
+        (e.g. single-phasestates).
+    \end{yzh}
+    At fixed amounts \(\vec{n}\):
+    \begin{gather*}
+        (dE)_{\vec{n}}= (C_p -pV\alpha_p) dT + (p\kappa_T -T \alpha_p)V  dp
+        \\(dS)_{\vec{n}}= \frac{C_p}{T} dT -\alpha_p V dp
+        \\(dH)_{\vec{n}}= C_p  dT+(1-T \alpha_p)V dp\\
+        (dF)_{\vec{n}} = -S dT - p dV 
+        =( -S - p V \alpha_p ) dT + ( p V \kappa_T ) dp\\
+        (dG)_{\vec{n}} = -S dT + V dp
+    \end{gather*}
+\end{example}
+\begin{example}
+    Experimental measurement of SES chemical potentials
 
+    \begin{minipage}{0.45\textwidth}
+        \includegraphics[width=\linewidth]{chap1/image/5.1.png}
+    \end{minipage}
+    \begin{minipage}{0.45\textwidth}
+        \vspace*{0pt} 
+        \parbox[t]{\linewidth}{ 
+            Mutual stable equilibrium across the semi-permeable membrane implies:
+            \begin{gather*}
+                T = T_{ii}\\
+                \mu_i(T,p,\vec{n})=\mu_{ii}(T,p_{ii})
+            \end{gather*}
+            This measurement procedure defines \textbf{the partial pressure} of constituent \(i\) in the mixture.
+        }
+    \end{minipage}
 
+    \textcolor{b1}{注：}A \href{https://www.zhihu.com/question/26131215/answer/32303725}{membrane} is a selective barrier at times 
+    it is also a outer covering of cell or cell organelle that allows 
+    the passage of certain constituents and 
+    retains other constituents found in the liquid.
 
+\fbox{  
+    \parbox{0.9\linewidth}{\centering
+        the chemical potential of pure constituent \(i\) as function of
+        temperature and pressure\\
+        evaluating it at the temperature and
+        \(\quad\Downarrow\quad\)
+        partial pressure of the mixture\\
+        the chemical potential of the constituent \(i\) in the mixture}}
+\end{example}
+\begin{add}
+    Summary of propertie
+    \begin{center} 
+        \begin{minipage}{0.45\textwidth}
+        \centering
+        \begin{tabular}{|c|}
+        \hline
+        \textbf{Properties Defined for All States} \\
+        \textbf{(Including SES and NEs)} \\ \hline
+        Energy \(E\) \\ \hline
+        Entropy \(S\) \\ \hline
+        Volume \(V\) \\ \hline
+        Amounts of constituents \(\vec{n}\) \\ \hline
+        Availabilities \\ \hline
+        \end{tabular}
+        \end{minipage}
+        \hfil
+        \begin{minipage}{0.45\textwidth}
+        \centering
+        \begin{tabular}{|c|}
+        \hline
+        \textbf{Properties Defined Only for SES} \\
+        \textbf{(All of Them)} \\ \hline
+        Temperature \(T\) \\ \hline
+        Pressure \(P\) \\ \hline
+        Chemical potentials \(\vec{\mu}\) \\ \hline
+        Enthalpy \(H\) \\ \hline
+        Gibbs free energy \(G\) \\ \hline
+        \end{tabular}
+        \end{minipage}
+        
+        \begin{minipage}{0.7\textwidth}
+        \centering
+        \begin{tabular}{|c|}
+        \hline
+        \textbf{Properties Defined Only for Some SES} \\
+        \textbf{(e.g. Not for Two-phase States)} \\ \hline
+        Specific heat at constant volume \(C_v\) \\ \hline
+        Specific heat at constant pressure \(C_p\) \\ \hline
+        Isobaric expansion coefficient \(\alpha_p\) \\ \hline
+        Isothermal compressibility coefficient \(\kappa_T\) \\ \hline
+        \end{tabular}
+        \end{minipage}
+\end{center}
+\end{add}
+\begin{thm}
+    Legendre Transform of a Function of a Single Variable
 
+Consider a curve described by the convex or concave monotonic function:
+\[
+F = F(y), \quad \lambda(y) = \frac{\partial F}{\partial y}, \quad L(y) = F(y) - \lambda(y)y
+\]
+We can describe the same curve also as the envelope of the family of its tangent lines.
 
+Since \(F(y)\) is convex or concave and monotonic, 
+\(\lambda = \lambda(y)\) is monotonic and hence invertible. 
+Using its inverse, \(y = y(\lambda)\), we find the Legendre transform of \(F = F(y)\):
+\begin{gather*}
+    L = L(\lambda) = F(y(\lambda)) - \lambda y(\lambda)
+    \\
+    \eta(\lambda) = \frac{\partial L}{\partial \lambda} 
+    = \frac{\partial F}{\partial y} \frac{\partial y}{\partial \lambda} 
+    - y(\lambda) - \lambda \frac{\partial y}{\partial \lambda} 
+    = -y(\lambda)\quad \Rightarrow\quad \eta = -y
+    \\
+    G = G(\eta) = L(\lambda(\eta)) - \eta \lambda(\eta)
+    \\
+    G(y) = G(-\eta) = L(\lambda(y)) + y \lambda(y) 
+    = F(y(\lambda(y))) - \lambda(y) y(\lambda(y)) + y \lambda(y) = F(y)
+\end{gather*}
+\end{thm}
 
+% \input{chap1/eq/eq.tex}
+
+\section{lecture 6}
+\begin{minipage}{0.9\linewidth}
+        \centering
+        \includegraphics[scale=0.45]{chap1/image/6.1.png}
+        \includegraphics[scale=0.45]{chap1/image/6.2.png}
+\end{minipage}
 
 
 

@@ -471,7 +471,7 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
                 + \frac{1}{2} d^2_{E,V} S^A + \frac{1}{2} d^2_{E,V} S^B < 0
         \end{align*}
         \item For the inequality to hold for all choices of \( dE \) and \( dV \), 
-        the terms in brackets must be zero. Therefore, the second-order differentials must be non-positive, 
+        the terms in brackets must be zero. Therefore, the second-order differentials must be negative, 
         i.e. the fundamental relation is \textbf{concave} in \( E \) and \( V \):
 \begin{align*}
             d_{E,V}^2 S &= \frac{\partial^2 S}{\partial E^2} (dE)^2 + 2 \frac{\partial^2 S}{\partial E \partial V} dEdV + \frac{\partial^2 S}{\partial V^2} (dV)^2 < 0
@@ -481,7 +481,7 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
             \frac{\partial^2 S}{\partial E^2} \frac{\partial^2 S}{\partial V^2} - \left[ \frac{\partial^2 S}{\partial E \partial V} \right]^2 < 0 
             \end{cases}
 \end{align*}
-\begin{zhu}
+\begin{zhu}\label{<>}
     这里Beretta教授在幻灯片上写的是
     \[
         d_{E,V}^2 S = \frac{\partial^2 S}{\partial E^2} (dE)^2 + 2 \frac{\partial^2 S}{\partial E \partial V} dEdV + \frac{\partial^2 S}{\partial V^2} (dV)^2 \boxed{\leq} 0
@@ -507,7 +507,7 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
                 - \frac{\mu^A_{i0}}{T^A_0} \right)}_{=0} dn_i + \frac{1}{2} d^2_{E,n_i} S^A + \frac{1}{2} d^2_{E,n_i} S^B < 0
             \end{align*}
                 \item For the inequality to hold for all choices of \( dE \) and \( dn_i \), 
-                the terms in brackets must be zero. Therefore, the second-order differentials must be non-positive, 
+                the terms in brackets must be zero. Therefore, the second-order differentials must be negative, 
                 i.e. the fundamental relation is \textbf{concave} in \( E \) and \( n_i \):          
 \begin{align*}
                 d^2_{E,n_i} S &= \frac{\partial^2 S}{\partial E^2} (dE)^2 + 2 \frac{\partial^2 S}{\partial E \partial n_i} dEdn_i + \frac{\partial^2 S}{\partial n_i^2} (dn_i)^2 < 0\\
@@ -733,7 +733,7 @@ C_p - C_v &=\left( \frac{\partial H}{\partial T} \right)_{p, \vec{n}}
 \end{itemize}
 \item
 \textbf{The isentropic compressibility} \(\kappa_s\) is defined as:
-\begin{align*}
+\begin{align*}\label{kappa_s}
 \kappa_s = -\frac{1}{V} \left( \frac{\partial V}{\partial p} \right)_S
 = \frac{1}{\gamma} \kappa_T \quad \text{where}\; \gamma = \frac{C_p}{C_v}.
 \end{align*}
@@ -905,11 +905,129 @@ Using its inverse, \(y = y(\lambda)\), we find the Legendre transform of \(F = F
         \includegraphics[scale=0.45]{chap1/image/6.1.png}
         \includegraphics[scale=0.45]{chap1/image/6.2.png}
 \end{minipage}
+\begin{thm}
+    Stability conditions deriving from the available energy 
 
+The canonical availability function \( \Gamma \) is:
+\[
+\Gamma = E - T_R S
+\]
 
+If \( A \) is in state \( A_R \) (MSE with the thermal reservoir \( R \)), any variation to another state \( A_1 \) satisfies:
+\[
+\Delta \Gamma^A = \Gamma_1^A - \Gamma_R^A > 0
+\]
+\begin{itemize}
+    \item For \textbf{a neighboring SES} with \( \Delta S^A = dS \) and constant \( V \) and \( n \):
+\[
+\Delta E^A = E^A(S_R + dS, V, n) - E_R^A = T_R dS + \frac{1}{2}d^2E^A|_{V,n} + \cdots
+\]
 
+This implies:
+\[
+\Delta \Gamma^A = \Delta E^A - T_R \Delta S^A = \frac{1}{2}d^2E^A|_{V,n} + \cdots > 0 \Rightarrow d^2E^A|_{V,n} > 0
+\]
 
+\item Alternatively, for \textbf{a neighboring SES} with \( \Delta E^A = dE \) and constant \( V \) and \( n \):
+\[
+\Delta S^A = S^A(E_R + dE, V, n) - S_R^A = \frac{1}{T_R}dE + \frac{1}{2}d^2S^A|_{V,n} + \cdots
+\]
 
+This implies:
+\[
+\Delta \Gamma^A = \Delta E^A - T_R \Delta S^A = -\frac{1}{2}d^2S^A|_{V,n} + \cdots > 0 \Rightarrow d^2S^A|_{V,n} < 0
+\]
+\end{itemize}
+\begin{zhu}
+    这里Beretta教授在幻灯片上写的是\(d^2E^A|_{V,n} \geq 0\)，\(d^2S^A|_{V,n} \leq 0\).我感觉应该都取严格不等号更为合适，跟之前第\pageref{<>}页的原因类似。
+    这里我想到了另一个更数学的解释，一阶导数为零，为了保证一定取极值，二阶导数严格大于（小于）零。否则有可能第一个非零导数为奇数阶，无极值，与
+    Minimum energy principle和Maximum entropy principle矛盾。
+\end{zhu}
+\end{thm}
+\begin{defn}
+    Jacobian determinants
+\begin{align*}
+\frac{\partial (f,g)}{\partial (x,y)} 
+= \left| \begin{array}{cc} 
+\left( \frac{\partial f}{\partial x} \right)_y & \left( \frac{\partial f}{\partial y} \right)_x \\ 
+\left( \frac{\partial g}{\partial x} \right)_y & \left( \frac{\partial g}{\partial y} \right)_x 
+\end{array} \right| 
+= - \frac{\partial (g,f)}{\partial (x,y)} 
+= \frac{\partial (g,f)}{\partial (y,x)} 
+= - \frac{\partial (f,g)}{\partial (y,x)}
+\end{align*}
+\end{defn}
+
+\begin{example}
+    第\pageref{kappa_s}页的恒等式的一种更简便的推导方法
+    \begin{align*}
+    \det(\text{Hess}(E)) &= 
+    \begin{vmatrix}
+    \frac{\partial^2 E}{\partial S^2} & \frac{\partial^2 E}{\partial S \partial V} \\
+    \frac{\partial^2 E}{\partial V \partial S} & \frac{\partial^2 E}{\partial V^2}
+    \end{vmatrix}
+    = 
+    \begin{vmatrix}
+    \left( \frac{\partial T}{\partial S} \right)_V & -\left( \frac{\partial p}{\partial S} \right)_V \\
+    \left( \frac{\partial T}{\partial V} \right)_S & -\left( \frac{\partial p}{\partial V} \right)_S
+    \end{vmatrix}
+    = -\frac{\partial(T,p)}{\partial(S,V)} 
+    \\&= 
+    \begin{cases}
+    -\frac{\partial(T,p)}{\partial(S,p)} \frac{\partial(S,p)}{\partial(S,V)} 
+    =- \left( \frac{\partial T}{\partial S} \right)_p 
+    \left( \frac{\partial p}{\partial V} \right)_S 
+    = \frac{T}{C_p} \frac{1}{V \kappa_S} \geq 0 \\
+    -\frac{\partial(T,p)}{\partial(T,V)} \frac{\partial(T,V)}{\partial(S,V)} 
+    =- \left( \frac{\partial p}{\partial V} \right)_T 
+    \left( \frac{\partial T}{\partial S} \right)_V 
+    = \frac{1}{V \kappa_T} \frac{T}{C_V} \geq 0
+    \end{cases}
+    \Rightarrow 
+     \frac{C_p}{C_V} = \frac{\kappa_T}{\kappa_S}
+    \end{align*}
+    \begin{explain}
+    第一个等式的雅可比行列式计算
+\begin{align*}
+        \frac{\partial(T,p)}{\partial(S,p)} = 
+        \begin{vmatrix}
+        \left( \frac{\partial T}{\partial S} \right)_p & \left( \frac{\partial T}{\partial p} \right)_S \\
+        \left( \frac{\partial p}{\partial S} \right)_p & \left( \frac{\partial p}{\partial p} \right)_S
+        \end{vmatrix}
+        &= \left( \frac{\partial T}{\partial S} \right)_p - \left( \frac{\partial T}{\partial p} \right)_S \left( \frac{\partial p}{\partial S} \right)_p
+        =\left( \frac{\partial T}{\partial S} \right)_p\\
+        \frac{\partial(S,p)}{\partial(S,V)} &= 
+        \begin{vmatrix}
+        \left( \frac{\partial S}{\partial S} \right)_V & \left( \frac{\partial S}{\partial V} \right)_S \\
+        \left( \frac{\partial p}{\partial S} \right)_V & \left( \frac{\partial p}{\partial V} \right)_S
+        \end{vmatrix}
+        = \left( \frac{\partial p}{\partial V} \right)_S
+        \\
+-\frac{\partial(T,p)}{\partial(S,p)} \frac{\partial(S,p)}{\partial(S,V)} 
+&= -\left( \frac{\partial T}{\partial S} \right)_p \left( \frac{\partial p}{\partial V} \right)_S
+\end{align*}
+    
+    第二个等式的雅可比行列式计算
+\begin{align*}
+        \frac{\partial(T,p)}{\partial(T,V)} &= 
+        \begin{vmatrix}
+        \left( \frac{\partial T}{\partial T} \right)_V & \left( \frac{\partial T}{\partial V} \right)_T \\
+        \left( \frac{\partial p}{\partial T} \right)_V & \left( \frac{\partial p}{\partial V} \right)_T
+        \end{vmatrix}
+        = \left( \frac{\partial p}{\partial V} \right)_T
+        \\
+        \frac{\partial(T,V)}{\partial(S,V)} &= 
+        \begin{vmatrix}
+        \left( \frac{\partial T}{\partial S} \right)_V & \left( \frac{\partial T}{\partial V} \right)_S \\
+        \left( \frac{\partial V}{\partial S} \right)_V & \left( \frac{\partial V}{\partial V} \right)_S
+        \end{vmatrix}
+        = \left( \frac{\partial T}{\partial S} \right)_V
+        \\ 
+        -\frac{\partial(T,p)}{\partial(T,V)} \frac{\partial(T,V)}{\partial(S,V)} 
+&= -\left( \frac{\partial p}{\partial V} \right)_T \left( \frac{\partial T}{\partial S} \right)_V
+\end{align*}
+    \end{explain}
+\end{example}
 
 
 

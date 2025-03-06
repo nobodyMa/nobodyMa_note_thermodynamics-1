@@ -20,12 +20,26 @@ This course is a self-contained concise review of general thermodynamics concept
 
 ## 课程内容概览
 
-### 1. **基础理论深化**  
-   - finitions of System, Property, State, and Weight Process
-   - Second Law and Entropy; Adiabatic Availability; Maximum Entropy Principle 
-   - Energy vs Entropy Diagrams to Represent Equilibrium and Nonequilibrium States
-   - Temperature, Pressure, Chemical Potentials; the Clausius Statement of the Sec
-   - Definition of Heat Interaction; First and Second Law Efficiencies  
+### 1. **concise review of basic concepts and definitions**  
+-Lecture 1: Definitions of System, Property, State, and Weight Process; First Law and Energy 
+
+-Lecture 2: Second Law and Entropy; Adiabatic Availability; Maximum Entropy Principle
+
+-Lecture 3: Energy vs Entropy Diagrams to Represent Equilibrium and Nonequilibrium States
+
+-Lecture 4: Temperature, Pressure, Chemical Potentials; The Clausius Statement of the Second Law
+
+-Lecture 5: Definition of Heat Interaction; First and Second Law Efficiencies
+
+-Lecture 6: Free Energies, Available Energies, and Stability Conditions
+
+-Lecture 7: Availability Functions and the LeChatelier-Braun Principle
+
+-Lecture 8: Few versus Many Particles: The Euler Relation; Review of Various Forms of Exergy (Part I)
+
+-Lecture 9: Minimum Work of Partitioning Small Systems; Gibbs’ Phase Rule; The Van der Waals Model
+
+-Lecture 10: Review of Various Forms of Exergy (Part II); Allocation of Consumptions in Cogeneration
 
 ### 2. ****  
 ### 3. ****  

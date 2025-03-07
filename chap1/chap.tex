@@ -18,7 +18,8 @@
 \else
 \fi
 %  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 正文部分
-\chapter{concise review of basic concepts and definitions}
+\part{concise review of basic concepts and definitions}
+\chapter{basic concepts , definitions and mathematics}
 \section{lecture 1}
 \begin{defn}
 \par\indent
@@ -277,9 +278,7 @@ S_1 = S_0 + \frac{\left(E_{s0\text{rev}}^R - E_{s1}^R\right)_{A_1 R_{s1} \unders
         E_2 - \Omega^R_2 \leq E_1 - \Omega^R_1 \qquad S_2\leq S_1 \)
     \end{itemize}
 \end{corollary}
-\begin{thm}
-    
-\end{thm}
+\begin{principle}
 
 \textbf{Maximum entropy principle:} Among all the states with the same given values of the amounts of constituents, the parameters, and \textbf{the energy}, only the stable equilibrium state has the maximum value of the entropy.
 
@@ -291,6 +290,7 @@ S_1 = S_0 + \frac{\left(E_{s0\text{rev}}^R - E_{s1}^R\right)_{A_1 R_{s1} \unders
             \item 非平衡态系统的能量可能被外部驱动力“泵入”，导致能量高于平衡态（如生物细胞的主动运输）。
         \end{itemize}
 \end{add}
+\end{principle}
 \begin{thm}\label{cfsl3}
     Consequences of the (First\&) Second Law (p\pageref{cfsl1}\;,\; p\pageref{cfsl2})
 \begin{itemize}
@@ -396,10 +396,8 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
         \]
     \end{itemize}
     \begin{add}
-阴阳动态平衡与热力学公式的哲学对应
-
 \begin{itemize}
-    \item \textbf{能量与熵的不可分割性 (万物负阴而抱阳) }  
+    \item \textbf{能量与熵的不可分割性}  
     \[
     S_{s1} - S_{s2} > \frac{E_{s1} - E_{s2}}{T_{s1}}
     \]
@@ -408,7 +406,7 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
     E_{s2} - E_{s1} > T_{s1}(S_{s2} - S_{s1})
     \]
     \textit{哲学内涵}：熵增（阴）代表系统微观状态自由度的扩展，而能量输入（阳）则是维持这种扩展的必要动力。
-    \item \textbf{动态平衡 (冲气为和) }  
+    \item \textbf{动态平衡}  
     
     系统稳态（s.e.s.）下的状态迁移需满足：
     \[
@@ -486,14 +484,15 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
     \[
         d_{E,V}^2 S = \frac{\partial^2 S}{\partial E^2} (dE)^2 + 2 \frac{\partial^2 S}{\partial E \partial V} dEdV + \frac{\partial^2 S}{\partial V^2} (dV)^2 \boxed{\leq} 0
     \]
-    这是不合理的，方程中的“$\leq0$”应更正为“$<0$”，使得Hessian矩阵负定，确保所有方向扰动均使熵减少。
+    这是一般化的。方程中的“$\leq0$”在大多数情况下都取“$<0$”，使得Hessian矩阵负定，确保所有方向扰动均使熵减少。
+    为了强调大多数情况只能取严格不等号，我对此进行了修改。
 
     在热力学稳定性分析中，当两个系统 \( A \) 和 \( B \) 处于平衡时，总熵的二阶变化必须严格小于零（\(<0\)）以确保平衡的稳定性。
     推导中第一个方程的总变化严格小于零是合理的，因为一阶项为零（平衡条件）后，二阶项之和必须负定（严格凹）。
     然而，第二个方程中熵的二阶微分 \( d^2_{E,V} S \leq 0 \) 是熵作为一般凹函数的性质，允许半负定（如相变临界点）。
     但在稳定性条件下，系统熵的二阶微分应严格负定（\(<0\)），若仅 \( \leq 0 \)，可能存在非零扰动使总变化为零，破坏稳定性。
     
-    在“\textbf{Temperature and Potential} Equality at Mutual Equilibrium”部分中，同样存在类似的问题。我已对该问题进行统一修正，因此不再在相关位置逐一说明。
+    在“\textbf{Temperature and Potential} Equality at Mutual Equilibrium”部分中，同样出于类似的原因，我已对其进行修改，因此不再在相关位置逐一说明。
 \end{zhu}
         \end{itemize}
         \item \textbf{Temperature and Potential} Equality at Mutual Equilibrium
@@ -897,7 +896,7 @@ Using its inverse, \(y = y(\lambda)\), we find the Legendre transform of \(F = F
 \end{gather*}
 \end{thm}
 
-% \input{chap1/eq/eq.tex}
+\input{chap1/eq/eq.tex}\label{eq.tex}
 
 \section{lecture 6}
 \begin{minipage}{0.9\linewidth}
@@ -906,9 +905,9 @@ Using its inverse, \(y = y(\lambda)\), we find the Legendre transform of \(F = F
         \includegraphics[scale=0.45]{chap1/image/6.2.png}
 \end{minipage}
 \begin{thm}
-    Stability conditions deriving from the available energy 
+    Stability conditions deriving from the available energy \textbf{(with fixed volume and amounts)}
 
-The canonical availability function \( \Gamma \) is:
+    The canonical availability function \( \Gamma \) is:
 \[
 \Gamma = E - T_R S
 \]
@@ -939,13 +938,17 @@ This implies:
 \]
 \end{itemize}
 \begin{zhu}
-    这里Beretta教授在幻灯片上写的是\(d^2E^A|_{V,n} \geq 0\)，\(d^2S^A|_{V,n} \leq 0\).我感觉应该都取严格不等号更为合适，跟之前第\pageref{<>}页的原因类似。
-    这里我想到了另一个更数学的解释，一阶导数为零，为了保证一定取极值，二阶导数严格大于（小于）零。否则有可能第一个非零导数为奇数阶，无极值，与
+    这里Beretta教授在幻灯片上写的是\(d^2E^A|_{V,n} \geq 0\)，\(d^2S^A|_{V,n} \leq 0\)，等号只在相平衡等特殊情况下取得。
+    多数情况都取严格不等号，跟之前第\pageref{<>}页的原因类似。一般化的表达式见原理\ref{l-bp}
+    
+    这里我想到了另一个更数学的解释，一阶导数为零，为了保证一定取极值，二阶导数严格大于（小于）零。
+    否则有可能第一个非零导数为奇数阶，无极值，与
     Minimum energy principle和Maximum entropy principle矛盾。
 \end{zhu}
 \end{thm}
+\section{lecture 7}
 \begin{defn}
-    Jacobian determinants
+    Jacobian (determinants)
 \begin{align*}
 \frac{\partial (f,g)}{\partial (x,y)} 
 = \left| \begin{array}{cc} 
@@ -1028,6 +1031,240 @@ This implies:
 \end{align*}
     \end{explain}
 \end{example}
+\begin{example}\label{proofTRI}
+    Prove cyclic relation (\pageref{TRI}) using Jacobians
+
+    the three functions
+\(\begin{cases}
+x = x(y, z) \\
+y = y(z, x) \\
+z = z(x, y)
+\end{cases}\)
+which represent the same surface \( f(x, y, z) = 0 \). 
+\[    \frac{\partial(x,z)}{\partial(y,z)}\frac{\partial(y,x)}{\partial(z,x)}\frac{\partial(z,y)}{\partial(x,y)} 
+    = \frac{\overbrace{\partial(x,z)}^{-1}}{\partial(z,x)}
+    \frac{\overbrace{\partial(y,x)}^{-1}}{\partial(x,y)}
+    \frac{\overbrace{\partial(z,y)}^{-1}}{\partial(y,z)}
+    =\left(-\frac{\partial(x,z)}{\partial(z,y)}\right) 
+    \left(-\frac{\partial(y,x)}{\partial(x,z)}\right) 
+    \left(-\frac{\partial(z,y)}{\partial(y,x)}\right)
+    = -1\]
+\end{example}
+\begin{principle}\label{l-bp}
+    LeChatelier-Braun principle
+\begin{gather*}
+    \left( \frac{\partial^2 S}{\partial E^2} \right)_{n,V} \leq 0 \Rightarrow \left( \frac{\partial T}{\partial E} \right)_{n,V} \geq 0
+    \\
+    \left( \frac{\partial^2 E}{\partial S^2} \right)_{n,V}^A \geq 0 \Rightarrow \left( \frac{\partial T}{\partial S} \right)_{n,V} \geq 0
+\end{gather*}
+\begin{zhu}
+    更一般的形式见原理\ref{l-bpg}
+\end{zhu}
+\begin{zhu}
+    通常在以下场景,等号成立：
+\begin{itemize}
+    \item \textbf{稳定性边界}：系统处于稳定与不稳定的临界点，热力学势的二阶导数为零；
+    \item \textbf{相变现象}：在二级相变(指相变过程中热力学势的一阶导数连续，但二阶导数不连续或发散的相变。)
+    的临界点，响应函数(热容、压缩率、磁化率等)趋于零或发散；
+    \item \textbf{理想化极限}：完全均质或无相互作用的系统可能严格满足等式。
+\end{itemize}
+\end{zhu}
+\end{principle}
+\begin{thm}
+    Stability conditions deriving from the available energy 
+    \textbf{(with changes in \textcolor{b1}{variable amount} of “i” at fixed volume)}
+
+If \( A \) is in state \( A_R \) (MSE with the thermal reservoir \( R \)), any possible variation to another state \( A_1 \) is such that  
+\[
+\Delta \Upsilon^A = \Upsilon_1^A - \Upsilon_R^A > 0 \quad \text{where} \quad \Upsilon^A = E^A - T_R S^A - \mu_i n_i^A
+\]  
+choose \( A_1 \) to be the neighbouring SES with \(\Delta S^A = dS\), 
+\(\Delta n_i^A = dn_i\) and the same values of \( V \) and 
+the other \( n_i' \), so that  
+\begin{gather*}
+    \Delta E^A = E^A(S_R + dS, V, n_{iR} + dn_i, n_i') - E_R^A 
+    = T_R dS + \mu_{iR }+ \frac{1}{2} d^2 E^A |_{V, n_i'} + \cdots
+    \\
+    \Delta \Upsilon^A = \Delta E^A - T_R \Delta S^A - \mu_i n_i^A 
+    = \frac{1}{2} d^2 E^A |_{V, n_i'} + \cdots > 0 
+    \quad \Rightarrow \quad d^2 E^A |_{V, n_i'} \geq 0
+\end{gather*}
+choose instead \( A_1 \) to be the neighbouring SES with \(\Delta E^A = dE\), 
+\(\Delta n_i^A = dn_i\) and the same values of \( V \) and 
+the other \( n_i' \), so that  
+\begin{gather*}
+    \Delta S^A = S^A(E_R + dE, V, n_{iR} + dn_i, n_i') - S_R^A 
+    = \frac{1}{T_R} dE - \frac{\mu_{iR }}{T_R} dn_i 
+    + \frac{1}{2} d^2 S^A |_{V, n_i'} + \cdots
+    \\
+    \Delta \Upsilon^A = \Delta E^A - T_R \Delta S^A + \mu_i n_i^A = -\frac{1}{2} d^2 S^A |_{V, n_i'} + \cdots > 0 \quad \Rightarrow \quad d^2 S^A |_{V, n_i'} \leq 0
+\end{gather*}
+\end{thm}
+\begin{thm}
+    Stability conditions deriving from the available energy \textbf{(with changes in \textcolor{b1}{volume} and amounts)}
+
+    If \( A \) is in state \( A_R \) (MSE with the thermal reservoir \( R \)), any possible variation to another state \( A_1 \) is such that  
+    \[
+    \Delta \Xi^A = \Xi_1^A - \Xi_R^A > 0 \quad \text{where} \quad \Xi^A = E^A - T_R S^A + p_R V^A - \mu_R \cdot n^A
+    \]  
+    choose \( A_1 \) to be the neighbouring SES with \(\Delta S^A = dS\), \(\Delta V^A = dV\), and \(\Delta n_i^A = dn_i \forall i\), so that  
+    \begin{gather*}
+    \Delta E^A = E^A (S_R + dS, V_R + dV, \vec{n}_R + d\vec{n}) - E_R^A = T_R dS - p_R dV + \mu_R \cdot dn + \frac{1}{2} d^2 E^A + \cdots
+    \\
+    \Delta \Xi^A = \Delta E^A - T_R \Delta S^A + p_R \Delta V^A - \mu_R \cdot \Delta n^A = \frac{1}{2} d^2 E^A + \cdots > 0 \quad \Rightarrow \quad d^2 E^A \geq 0
+    \end{gather*}
+    choose instead \( A_1 \) to be the neighbouring SES with \(\Delta E^A = dE\), \(\Delta V^A = dV\), and \(\Delta n_i^A = dn_i \forall i\), so that  
+\begin{align*}
+        \Delta S^A &= S^A (E_R + dE, V_R + dV, \vec{n}_R + d\vec{n}) - S_R^A 
+        \\
+        &= \frac{1}{T_R} dE + \frac{p_R}{T_R} dV - \frac{1}{T_R} \mu_R \cdot dn + \frac{1}{2} d^2 S^A + \cdots
+        \\
+        \Delta \Xi^A &= \Delta E^A - T_R \Delta S^A + p_R \Delta V^A - \mu_R \cdot \Delta n^A = -\frac{1}{2} d^2 S^A + \cdots > 0 \quad \Rightarrow \quad d^2 S^A \leq 0
+\end{align*}
+\end{thm}
+\begin{thm}
+    Stability conditions deriving from the available energy with \textbf{(changes in the \textcolor{b1}{amounts} at fixed temperature and pressure)}
+
+    If \( A \) is in state \( A_R \) (MSE with the thermal reservoir \( R \)), any possible variation to another state \( A_1 \) is such that  
+    \[
+    \Delta \Xi^A = \Xi_1^A - \Xi_R^A > 0 \quad \text{where} \quad \Xi^A = E^A - T_R S^A + p_R V^A - \mu_R \cdot n^A
+    \]
+
+    For example, choose \( A_1 \) to be the neighbouring SES with same temperature \( T_1^A = T_R \) and pressure \( p_1^A = p_R \), and \(\Delta n_i^A = dn_i \, \forall i\), so that  
+\begin{gather*}
+        \Delta E^A = E^A (T_R, p_R, \vec{n}_R + d\vec{n}) - E_R^A
+    \\
+        \Delta S^A = S^A (T_R, p_R, \vec{n}_R + d\vec{n}) - S_R^A
+    \\
+        \Delta V^A = V^A (T_R, p_R, \vec{n}_R + d\vec{n}) - V_R^A
+\end{gather*}
+\begin{align*}
+        &\Delta E^A - T_R \Delta S^A + p_R \Delta V^A\\
+        =& \Delta G^A = G^A (T_R, p_R, \vec{n}_R + d\vec{n}) - G_R^A = \mu_R \cdot dn + \frac{1}{2} d^2 G^A |_{T,p} + \cdots
+    \\
+        \Delta \Xi^A &= \Delta G^A - \mu_R \cdot \Delta n^A = \frac{1}{2} d^2 G^A |_{T,p} + \cdots > 0 \quad \Rightarrow \quad d^2 G^A |_{T,p} \geq 0
+\end{align*}
+\end{thm}
+\begin{thm}
+    Stability conditions deriving from the available energy with \textbf{(changes in \textcolor{b1}{volume and amounts} at fixed temperature)}
+
+    If \( A \) is in state \( A_R \) (MSE with the thermal reservoir \( R \)), any possible variation to another state \( A_1 \) is such that  
+    \[
+    \Delta E^A = E_1^A - E_R^A > 0 \quad \text{where} \quad E^A = E^A - T_R S^A + p_R V^A - \mu_R \cdot n^A
+    \]
+    choose \( A_1 \) to be the neighbouring SES with same temperature \( T_1^A = T_R \), \(\Delta V^A = dV\), and \(\Delta n_i^A = dn_i \, \forall i\), so that  
+    \[
+    \Delta E^A = E^A(T_R, V_R + dV, \, \vec{n}_R + d\vec{n}) - E_R^A
+    \]
+    \[
+    \Delta S^A = S^A(T_R, V_R + dV, \, \vec{n}_R + d\vec{n}) - S_R^A
+    \]
+\begin{align*}
+    &\Delta E^A - T_R \Delta S^A\\
+    =& \Delta F^A = F^A(T_R, V_R + dV, \, \vec{n}_R + d\vec{n}) - F_R^A = -p_R \, dV + \mu_R \cdot dn + \frac{1}{2} d^2 F^A |_T + \cdots
+    \\
+    \Delta E^A &= \Delta F^A + p_R \Delta V^A - \mu_R \cdot \Delta n^A = \frac{1}{2} d^2 F^A |_T + \cdots > 0 \quad \Rightarrow \quad d^2 F^A |_T \geq 0
+\end{align*}
+\end{thm}
+\begin{principle}
+    LeChatelier-Braun principle \textbf{(more general statement)}\label{l-bpg}
+    \[
+        \mathrm{d}^2A|_z\geq 0\Rightarrow
+            \begin{cases}
+                \left(\dfrac{\partial A_{x}}{\partial x}\right)_y
+                \geq \left(\dfrac{\partial A_{x}}{\partial x}\right)_{A,y}\geq 0\\
+                \left(\dfrac{\partial A_{y}}{\partial y}\right)_x
+                \geq \left(\dfrac{\partial A_{y}}{\partial y}\right)_{A,x}\geq 0
+            \end{cases}
+        \hfil
+        \mathrm{d}^2A|_z\leq 0\Rightarrow
+        \begin{cases}\left(\dfrac{\partial A_{x}}{\partial x}\right)_y
+            \leq \left(\dfrac{\partial A_{x}}{\partial x}\right)_{A,y}\leq 0\\
+            \left(\dfrac{\partial A_{y}}{\partial y}\right)_x
+            \leq \left(\dfrac{\partial A_{y}}{\partial y}\right)_{A,x}\leq 0
+        \end{cases}
+    \]
+\begin{tui}
+    Given a function \( A(x, y, z) \)
+\begin{gather*}
+        A_x = \left( \frac{\partial A}{\partial x} \right)_{y,z} = A_x(x, y, z) 
+        \qquad A_y = \left( \frac{\partial A}{\partial y} \right)_{x,z} = A_y(x, y, z)
+    \\
+        A_{xx} = \left( \frac{\partial^2 A}{\partial x^2} \right)_{y,z} = \left( \frac{\partial A_x}{\partial x} \right)_{y,z} 
+        \qquad A_{yy} = \left( \frac{\partial^2 A}{\partial y^2} \right)_{x,z} = \left( \frac{\partial A_y}{\partial y} \right)_{x,z}
+    \\
+        A_{xy} = \left( \frac{\partial^2 A}{\partial x\partial y} \right)_z = \left( \frac{\partial A_y}{\partial x} \right)_{y,z} = \left( \frac{\partial A_x}{\partial y} \right)_{x,z} = \left( \frac{\partial^2 A}{\partial y\partial x} \right)_z = A_{yx}
+\end{gather*}  
+\begin{align*}
+        d^2A|_z &= A_{xx} \left( dx + \frac{A_{xy}}{A_{xx}} dy \right)^2 + \lambda_y (dy)^2 
+        &\quad \text{where} \quad \lambda_y = A_{yy} - A_{xx} \left( \frac{A_{xy}}{A_{xx}} \right)^2
+    \\
+        &= \lambda_x (dx)^2 + A_{yy} \left( dy + \frac{A_{xy}}{A_{yy}} dx \right)^2 
+        &\quad \text{where} \quad \lambda_x = A_{xx} - A_{yy} \left( \frac{A_{xy}}{A_{yy}} \right)^2
+\end{align*}
+    Therefore, since the stability conditions must hold for arbitrary \( dx \) and \( dy \),  
+    \[
+    d^2A|_z \geq 0 \Rightarrow 
+        \begin{cases} A_{xx} \geq \lambda_x \geq 0 \\ 
+        A_{yy} \geq \lambda_y \geq 0 \end{cases} 
+        \quad \text{whereas} \quad 
+        d^2A|_z \leq 0 \Rightarrow 
+        \begin{cases} A_{xx} \leq \lambda_x \leq 0 \\ 
+        A_{yy} \leq \lambda_y \leq 0 \end{cases}
+    \]
+Whether \( d^2 A|_z \) is positive semidefinite or negative semidefinite
+\begin{align*}
+0 \leq \det(\text{Hess}(A)) &= \left| \frac{A_{xx} \, A_{xy}}{A_{xy} \, A_{yy}} \right| = \frac{\partial (A_{x}, A_{y})}{\partial (x, y)}
+\\
+&=\begin{cases}
+    \frac{\partial (A_{x},A_{y})}{\partial (A_{x},y)}\frac{\partial (A_{x},y)}{\partial (x,y)}
+    =\left(\frac{\partial A_{y}}{\partial y}\right)_{A_{x}}
+    \left(\frac{\partial A_{x}}{\partial x}\right)_{y}
+    =\left(\frac{\partial A_{y}}{\partial y}\right)_{A_{x}}A_{xx}\geq 0
+    \\
+    \frac{\partial (A_{x},A_{y})}{\partial (x,A_{y})}\,\frac{\partial (x,A_{y})}{\partial (x,y)}
+    =\left(\frac{\partial A_{x}}{\partial x}\right)_{A_{y}}
+    \left(\frac{\partial A_{y}}{\partial y}\right)_{x}
+    =\left(\frac{\partial A_{x}}{\partial x}\right)_{A_{y}}\,A_{yy}\geq 0
+\end{cases}
+\end{align*}
+rewrite \(\lambda_x\) and \(\lambda_y\) as
+\begin{gather*}
+    \lambda_x = A_{xx} - A_{yy} \left( \frac{A_{xy}}{A_{yy}} \right)^2 
+    = \frac{\det(\text{Hess}(A))}{A_{yy}} 
+    = \left( \frac{\partial A_{x}}{\partial x} \right)_{A_{y}}
+    \\
+    \lambda_y = A_{yy} - A_{xx} \left( \frac{A_{xy}}{A_{xx}} \right)^2 
+    = \frac{\det(\text{Hess}(A))}{A_{xx}} 
+    = \left( \frac{\partial A_{y}}{\partial y} \right)_{A_{x}}
+\end{gather*}
+the stability conditions become
+\begin{align*}
+\mathrm{d}^2A|_z\geq 0\Rightarrow
+    \begin{cases}
+        \left(\dfrac{\partial A_{x}}{\partial x}\right)_y
+        \geq \left(\dfrac{\partial A_{x}}{\partial x}\right)_{A,y}\geq 0\\
+        \left(\dfrac{\partial A_{y}}{\partial y}\right)_x
+        \geq \left(\dfrac{\partial A_{y}}{\partial y}\right)_{A,x}\geq 0
+    \end{cases}
+\hfil
+\mathrm{d}^2A|_z\leq 0\Rightarrow
+\begin{cases}\left(\dfrac{\partial A_{x}}{\partial x}\right)_y
+    \leq \left(\dfrac{\partial A_{x}}{\partial x}\right)_{A,y}\leq 0\\
+    \left(\dfrac{\partial A_{y}}{\partial y}\right)_x
+    \leq \left(\dfrac{\partial A_{y}}{\partial y}\right)_{A,x}\leq 0
+\end{cases}
+\end{align*}
+\end{tui}
+\end{principle}
+
+
+
+
+
+
+
+
 
 
 

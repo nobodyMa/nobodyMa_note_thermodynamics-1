@@ -311,7 +311,7 @@ S_1 = S_0 + \frac{\left(E_{s0\text{rev}}^R - E_{s1}^R\right)_{A_1 R_{s1} \unders
         \),        
         Gibbs relation (entropy form):
 \[
-dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
+dS = \frac{1}{T} dE + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
 \]
         \item 
         \(
@@ -401,26 +401,26 @@ dS = \frac{1}{T} dU + \frac{P}{T} dV - \sum_i \frac{\mu_i}{T} dn_i
     \[
     S_{s1} - S_{s2} > \frac{E_{s1} - E_{s2}}{T_{s1}}
     \]
-    \textit{哲学内涵}：能量（阳）显化为外在功用时，系统内禀的微观状态自由度（阴）必须同步减少,以熵的隐性耗散为代价。
+    能量显化为外在功用时，系统内禀的微观状态自由度必须同步减少,以熵的隐性耗散为代价。
     \[
     E_{s2} - E_{s1} > T_{s1}(S_{s2} - S_{s1})
     \]
-    \textit{哲学内涵}：熵增（阴）代表系统微观状态自由度的扩展，而能量输入（阳）则是维持这种扩展的必要动力。
+    熵增代表系统微观状态自由度的扩展，而能量输入是维持这种扩展的必要动力。
     \item \textbf{动态平衡}  
     
     系统稳态（s.e.s.）下的状态迁移需满足：
     \[
     \Delta E > T\Delta S \quad \text{或} \quad \Delta S > \frac{\Delta E}{T}
     \]
-    \textit{哲学内涵}：阴阳消长需通过能量\textminus 熵交换（冲气）达成新平衡。不等式方向表明：
+    需通过能量\textminus 熵交换达成新平衡。不等式方向表明：
     \begin{itemize}
-        \item 当系统释放能量（阳减），必伴随熵的净输出（阴减），否则平衡被破坏
-        \item 当系统吸收熵（阴增），需注入超额能量（阳增）以维持（和）的状态
+        \item 当系统释放能量，必伴随熵的净输出，否则平衡被破坏。
+        \item 当系统吸收熵，需注入超额能量以维持平衡。
     \end{itemize}
 
-    \item \textbf{自然无为的约束 (为者败之，执者失之) }
-    
-    由于The Onsager reciprocity relations，对传热、扩散等过程，熵产率（\(\sigma\)）与热力学力（\(X\)）和流（\(J\)）满足：
+    \item    
+    由于The Onsager reciprocity relations，对传热、扩散等过程，
+    熵产率（\(\sigma\)）与热力学力（\(X\)）和流（\(J\)）满足：
     \[
     \sigma = J \cdot X \geq 0
     \]
@@ -777,11 +777,12 @@ C_p - C_v &=\left( \frac{\partial H}{\partial T} \right)_{p, \vec{n}}
 \end{align*}
 \end{itemize}
 \end{defn}
-\begin{example}
+\begin{example}\label{generalrelations}
     \begin{yzh}
         These properties (\(\alpha_p,\kappa_T,C_p,\mu_i\)) are defined
-        (e.g. single-phasestates).
+        (e.g., single-phasestates).
     \end{yzh}
+
     At fixed amounts \(\vec{n}\):
     \begin{gather*}
         (dE)_{\vec{n}}= (C_p -pV\alpha_p) dT + (p\kappa_T -T \alpha_p)V  dp
@@ -860,7 +861,7 @@ C_p - C_v &=\left( \frac{\partial H}{\partial T} \right)_{p, \vec{n}}
         \begin{tabular}{|c|}
         \hline
         \textbf{Properties Defined Only for Some SES} \\
-        \textbf{(e.g. Not for Two-phase States)} \\ \hline
+        \textbf{(e.g., Not for Two-phase States)} \\ \hline
         Specific heat at constant volume \(C_v\) \\ \hline
         Specific heat at constant pressure \(C_p\) \\ \hline
         Isobaric expansion coefficient \(\alpha_p\) \\ \hline
@@ -1257,6 +1258,248 @@ the stability conditions become
 \end{align*}
 \end{tui}
 \end{principle}
+
+\section{lecture 8}
+\begin{thm}
+    Euler relation
+\[
+U = TS - pV + \mu \cdot n
+\]
+    \begin{proof}
+\[
+0 = U \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right) + \lambda T \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right) \left( -\frac{S}{\lambda^2} \right) - \lambda p \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right) \left( -\frac{V}{\lambda^2} \right) + \lambda \mu \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right) \cdot \left( -\frac{n}{\lambda^2} \right)
+\]
+let \(\lambda = 1\) to get \(0 = U(S, V, n) - T(S, V, n) S + p(S, V, n) V - \mu (S, V, n) \cdot n\).
+    \end{proof}
+\end{thm}
+\begin{corollary}
+\begin{gather*}
+    T(S, V, n) = T \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right)\quad \forall \lambda \in \mathbb{R}
+    \\p(S, V, n) = p \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right)\quad \forall \lambda \in \mathbb{R}
+    \\\mu (S, V, n) = \mu \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right)\quad \forall \lambda \in \mathbb{R}
+\end{gather*}
+\begin{proof}
+    \begin{gather*}
+        T \left( \frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda} \right)
+        = \frac{\partial U \left( \frac{S}{\lambda},\frac{V}{\lambda}, \frac{n}{\lambda} \right)}
+        {\partial \left(\frac{S}{\lambda}\right)} 
+     = \lambda \frac{\partial U\left( S,V,n\right)}{\partial S}  
+     \frac{1}{\lambda} 
+      =\frac{\partial U\left( S,V,n\right)}{\partial S}=T(S, V, n) 
+\\
+p\left(\frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda}\right)
+= -\frac{\partial U\left(\frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda}\right)}
+{\partial \left(\frac{V}{\lambda}\right)}
+= -\lambda \frac{\partial U(S, V, n)}{\partial V} \cdot \frac{1}{\lambda}
+= -\frac{\partial U(S, V, n)}{\partial V}
+= p(S, V, n)
+\\
+\mu\left(\frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda}\right)
+= \frac{\partial U\left(\frac{S}{\lambda}, \frac{V}{\lambda}, \frac{n}{\lambda}\right)}
+{\partial \left(\frac{n}{\lambda}\right)}
+= \lambda \frac{\partial U(S, V, n)}{\partial n} \cdot \frac{1}{\lambda}
+= \frac{\partial U(S, V, n)}{\partial n}
+= \mu(S, V, n)
+\end{gather*}
+\end{proof}
+\end{corollary}
+\begin{corollary}
+    \[
+U = U(S, V, n) = nu(s, v, y)
+\]
+\begin{proof}
+\begin{align*}
+    u &= \frac{1}{n} U(S, V, n) = \frac{1}{n} U(ns, nv, ny_1, \cdots, ny_r)
+    \\
+    \frac{\partial u}{\partial n} &= -\frac{U}{n^2} + 
+    \frac{1}{n} \frac{\partial U}{\partial S} \frac{\partial ns}{\partial n} 
+    + \frac{1}{n} \frac{\partial U}{\partial V} \frac{\partial nv}{\partial n} 
+    + \frac{1}{n} \sum_{i=1}^r \frac{\partial U}{\partial n_i} \frac{\partial ny_i}{\partial n}
+    \\
+    &= -\frac{U}{n^2} + \frac{1}{n} Ts - \frac{1}{n} pv 
+    + \frac{1}{n} \sum_{i=1}^r \mu_i y_i = -\frac{1}{n^2} 
+    \left( U - TS + pV - \sum_{i=1}^r \mu_in_i \right) = 0
+\end{align*}
+\end{proof}
+\end{corollary}
+\begin{defn}
+    efficiencies
+
+    The ratio between the \textbf{produced} useful effect and the associated 
+    \textbf{energy used} from the source is called \textbf{first law efficiency}. 
+
+In the particular case 
+of refrigeration equipment and heat pumps this ratio is called \textbf{COP} (coefficient of
+ performance).
+
+ The ratio between the \textbf{exergy} associated with the \textbf{produced} useful effect and the 
+ one associated with the  \textbf{utilized} source is called \textbf{second law efficiency}.
+\end{defn}
+\section{lecture 9}
+\begin{defn}
+    minimum work of partitioning(small systems \(Eu\neq 0\))
+    \begin{center}
+        \includegraphics[scale=0.25]{chap1/image/9.1.png}
+    \end{center}
+\end{defn}
+\begin{defn}
+\noindent
+\begin{enumerate}
+    \item Extensive Properties
+    \begin{itemize}
+        \item \textbf{Definition}: A property \( P_e \) is extensive if the value of the SES function \( P_e(U,V,\mathbf{n}) \) changes by a factor \(\lambda\) when the independent variables \( U, V, \mathbf{n} \) change by the same factor \(\lambda\).
+        \[
+        P_e(U,V,\mathbf{n}) = \lambda P_e(U/\lambda, V/\lambda, \mathbf{n}/\lambda) \quad \forall \lambda \in \mathbb{R}
+        \]
+        \item \textbf{Examples}: Entropy \( S \), internal energy \( U \), volume \( V \), mole numbers \( n_1, \ldots, n_r \), total mole number \( n = \sum_{i=1}^r n_i \), enthalpy \( H \), mass \( m_i = n_i M_i \), total mass \( m = \sum_{i=1}^r m_i \), heat capacity at constant volume \( C_V \), heat capacity at constant pressure \( C_p \).
+    \end{itemize}
+    \item Specific Properties
+    \begin{itemize}
+        \item \textbf{Definition}: A specific property is defined by the ratio between extensive properties.
+        \item \textbf{Examples}:
+        \begin{itemize}
+            \item Molar specific properties:\\ \( s = \frac{S}{n} \), \( u = \frac{U}{n} \), \( v = \frac{V}{n} \), 
+            \( h = \frac{H}{n} \), \( c_v = \frac{C_V}{n} \), \( c_p = \frac{C_P}{n} \), \( y_i = \frac{n_i}{n} \)
+            \item Mass specific properties:\\ \( s^* = \frac{S}{m} \), \( u^* = \frac{U}{m} \), \( v^* = \frac{V}{m} \), 
+            \( h^* = \frac{H}{m} \), \( c_v^* = \frac{C_V}{m} \), \( c_p^* = \frac{C_P}{m} \), \( x_i = \frac{m_i}{m} \)
+            \item Volume-specific properties:\\ \( \rho s = \frac{S}{V} \), \( \rho u = \frac{U}{V} \), \( \rho = \frac{m}{V} \), 
+            \( \rho h = \frac{H}{V} \), \( \rho c_v = \frac{C_V}{V} \), \( \rho c_p = \frac{C_P}{V} \), \( c_i = [N_i] = \frac{n_i}{V} \)
+        \end{itemize}
+    \end{itemize}
+    \item Intensive Properties
+    \begin{itemize}
+        \item \textbf{Definition}: A property \( P_i \) is intensive if the value of the SES function \( P_i(U,V,\mathbf{n}) \) remains 
+        unchanged when the values of the independent variables \( U, V, \mathbf{n} \) are all changed by the same factor \(\lambda\).
+        \[
+        P_i(U, V, \mathbf{n}) = P_i(U/\lambda, V/\lambda, \mathbf{n}/\lambda) \quad \forall \lambda \in \mathbb{R}
+        \]
+        \item \textbf{Examples}: Temperature \( T \), pressure \( p \), chemical potentials \( \mu_1, \ldots, \mu_r \), 
+        density \( \rho = \frac{m}{V} \), mole fraction \( y_i = \frac{n_i}{n} \), mass fraction \( x_i = \frac{m_i}{m} \)
+        \item \textbf{Intensive State}: The set of values of all intensive SES properties.
+    \end{itemize}
+    \begin{zhu}
+        \textbf{Specific properties (比性质) vs. intensive properties (强度性质) }
+        \begin{enumerate}
+                \item \textbf{Intensive Properties} are inherent to the system and do not depend on its scale (e.g., temperature, pressure).
+                \item \textbf{Specific Properties} are obtained by normalizing extensive properties (e.g., entropy, internal energy, volume) 
+                with respect to the system's scale (mass, mole number, or volume), making them \textbf{a special form of intensive properties}.
+        \end{enumerate}
+        The existence of these two terms helps \textbf{distinguish} between properties \textbf{inherent to the system} (e.g., temperature, pressure) and 
+        properties obtained \textbf{through normalization} (e.g., specific entropy, specific internal energy).
+    \end{zhu}
+    \item Homogeneous vs. Heterogeneous SES, Phases
+    \begin{itemize}
+        \item \textbf{Homogeneous SES}: If, regardless of the subdivision, all partitions share the same intensive state, the state is called a homogeneous SES.
+        \item \textbf{Heterogeneous SES}: If it is possible to subdivide the system in a way that not all partitions share
+         the same intensive state, the state is called a heterogeneous SES. Each set of subsystems sharing the same intensive state is called a \textbf{phase}.
+        \item \textbf{System A}: The total energy, volume, and mole numbers of the SES can be expressed as the sum of the contributions from each phase:
+\begin{gather*}
+            E = E^{(1)} + E^{(2)} + \cdots + E^{(q)}
+    \\
+            V = V^{(1)} + V^{(2)} + \cdots + V^{(q)}
+    \\
+            n_1 = n_1^{(1)} + n_1^{(2)} + \cdots + n_1^{(q)}
+    \\
+            \vdots
+    \\
+            n_r = n_r^{(1)} + n_r^{(2)} + \cdots + n_r^{(q)}
+\end{gather*}
+    \end{itemize}
+\end{enumerate}
+\end{defn}
+\begin{thm}
+    Gibbs' phase rule 
+
+    For a system with \( q \) phases and \( r \) components, 
+    the number of independently variable intensive properties (variance) is \( F = r + 2 - q \).
+    \begin{proof}
+        \begin{itemize}
+            \item \textbf{Variables}: The intensive states of all phases are determined by \textcolor{b1}{\( 2 + rq \)} variables:
+            \[
+            T, p, \mathbf{y}^{(1)}, \mathbf{y}^{(2)}, \ldots, \mathbf{y}^{(q)}
+            \]
+            \item \textbf{Conditions}:
+            \begin{itemize}
+                \item \textcolor{b1}{\( q \)} trivial conditions:
+                \[
+                \sum_{i=1}^{r} y_i^{(j)} = 1 \quad \text{for } j = 1, \ldots, q
+                \]
+                \item \textcolor{b1}{\( (q-1)r \)} equalities for MSE (Mechanical, Thermal, and Chemical Equilibrium):
+                \[
+                \mu_i^{(1)}(T, p, \mathbf{y}^{(1)}) = \mu_i^{(2)}(T, p, \mathbf{y}^{(2)}) = \ldots = \mu_i^{(q)}(T, p, \mathbf{y}^{(q)})
+                \]
+            \end{itemize}
+        \end{itemize}
+    \end{proof}
+\end{thm}
+\begin{add}
+If chemical reactions are allowed, the variance becomes \( F = r + 2 - q - z \), where \( z \) is 
+the number of independent chemical equilibrium conditions.
+\end{add}
+\begin{example}
+    回忆例\ref{generalrelations}。
+    \begin{enumerate}
+        \item Ideal (perfect) incompressible solid or fluid model
+        \begin{itemize}
+            \item \textbf{Assumption}: The specific volume \( v \) is approximately constant.
+            \item \textbf{Implications}:
+            \[
+            k_T = 0 \qquad \alpha_p = 0 \qquad c_p = c_v = c = c(T)
+            \]
+        \end{itemize}
+        \item Ideal (perfect) gas model
+        \begin{itemize}
+            \item \textbf{Assumption}: The equation of state is \( pV = nRT \) with
+            \[
+            R = N_{\text{Avogadro}}k_{\text{Boltzmann}} = 8.314 \qquad \frac{\text{kJ}}{\text{kmol K}}
+            \]
+            \item \textbf{Implications}:
+            \[
+            k_T = \frac{1}{p} \qquad \alpha_p = \frac{1}{T} \qquad c_p(T) = c_v(T) + R
+            \]
+        \end{itemize}
+    \end{enumerate}
+\end{example}
+\begin{example}
+Clausius-Clapeyron Relation
+\begin{itemize}
+    \item Describes the relationship for a pure substance in two-phase states.
+\end{itemize}
+\end{example}
+\begin{example}
+Properties of Two-Phase Liquid-Vapor States
+\begin{itemize}
+    \item satisfy additivity.
+\end{itemize}
+\end{example}
+\begin{example}
+    the p-v diagram according to the van der Waals model 
+    \begin{enumerate}
+        \item the "S"-Shaped Curve
+        \begin{itemize}
+            \item reflects the non-ideal behavior of real gases during phase transitions (between liquid and gas phases).
+        \end{itemize}
+        \item the Metastable Region
+        \begin{itemize}
+            \item \textbf{Local minimum}: Corresponds to \textbf{supercooled liquid} (liquid remaining in the liquid phase below the saturation vapor pressure).
+            \item \textbf{Local maximum}: Corresponds to \textbf{superheated vapor} (gas remaining in the gas phase above the saturation vapor pressure).
+            \item The region between these \textbf{two extrema} is the \textbf{metastable region}, where the system is in a \textbf{non-equilibrium state}.
+            
+            Any small disturbance (e.g., introduction of nucleation sites or bubbles) can cause the system to rapidly transition to a \textbf{stable equilibrium state}:
+        \end{itemize}
+        \item \begin{itemize}
+            \item \textbf{Supercooled Liquid}:
+             A liquid remains in the liquid phase \textbf{below} its saturation vapor pressure.
+            \item \textbf{Superheated Vapor}:
+             A gas remains in the gas phase \textbf{above} its saturation vapor pressure.
+        \end{itemize}
+    \end{enumerate}
+\end{example}
+
+
+
+
+
 
 
 

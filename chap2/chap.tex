@@ -17,6 +17,9 @@
 \fi
 %  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 正文部分
 \chapter{chemical potentials and multicomponent equilibria}
+\begin{zhu}
+    双下角标表示纯物质的性质，单下角标表示混合物中该组分的性质，下角标中用逗号隔开表示对其后的性质求偏导。
+\end{zhu}
 \section{lecture 11-2}
 \begin{thm}
     Summary of SES relations
@@ -152,6 +155,57 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
         &\xrightarrow{n \, \text{large}}H &= \sum_{i=1}^r n_i \, h_i
     \end{align*}
 \end{thm}
+\section{lecture 12}
+\begin{corollary}
+    They are all measurable and allow the measurement of partial properties, 
+    once the pure-substance properties of the mixture components are known. 
+    As a result, we can write
+\begin{gather*}
+    \mu_i = h_i - Ts_i = h_{ii} + \Delta h_i^{\text{max}} - Ts_{ii} - T\Delta s_i^{\text{max}} = \mu_{ii}(T,p) + \Delta h_i^{\text{max}} - T\Delta s_i^{\text{max}} = \mu_{ii}(T,p_{ii})
+\end{gather*}
+\begin{align*}
+    \mu_{ii}(T,p_{ii}) - \mu_{ii}(T,p) &= \int_p^{p_{ii}} v_{ii}(T,p') \, dp' 
+    = \Delta h_i^{\text{max}} - T\Delta s_i^{\text{max}}\\ 
+    &=\begin{cases} 
+    RT \ln \frac{p_{ii}}{p} & \text{ideal gas} \\
+    -(p - p_{ii})v_{ii} & \text{ideal liquid or solid}
+    \end{cases}
+\end{align*}
+\end{corollary}
+\begin{example}
+    enthalpies of isothermobaric mixing of molten salts 
+    \[\Delta h^{\rm mix}_i = h_i(T,p, n\vec{y}) - h_{ii}(T,p)\]
+\end{example}
+\begin{example}
+    volumes of isothermobaric mixing of molten salts
+    \[\Delta v_i^{\rm mix} = v_i(T,p,n\vec{y}) - v_{ii}(T,p)\] 
+\end{example}
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{chap2/image/12.1.png}
+    \hfil\includegraphics[width=0.33\textwidth]{chap2/image/12.2.png}
+\end{center}
+\begin{defn}
+    \textbf{Partial properties} in terms of \textbf{partial pressures} and \textbf{pure-substance properties}
+    \begin{zhu}
+        partial pressure is not defined by a partial derivative 
+        with respect to some amount at constant \(T\), \(p\), and \(\vec{n}\).
+    \end{zhu}
+    \begin{align*}
+        s_i(T, p, \vec{y}) &= - \left( \frac{\partial \mu_i}{\partial T} \right)_{p, \vec{n}} 
+        = - \left( \frac{\partial \mu_{ii}}{\partial T} \right)_{p, i} - \left( \frac{\partial \mu_{ii}}{\partial p_{ii}} \right)_T \left( \frac{\partial p_{ii}}{\partial T} \right)_{p, \vec{n}} \\
+        &= s_{ii}(T, p_{ii}) - v_{ii}(T, p_{ii}) \, p_{ii,T}(T, p, \vec{y}) 
+    \\
+        v_i(T, p, \vec{y}) &= \left( \frac{\partial \mu_i}{\partial p} \right)_{T, \vec{n}} 
+        = \left( \frac{\partial \mu_{ii}}{\partial p_{ii}} \right)_T \left( \frac{\partial p_{ii}}{\partial p} \right)_{T, \vec{y}} \\
+        &= v_{ii}(T, p_{ii}) \, p_{ii,p}(T, p, \vec{y})
+    \\
+        h_i(T, p, \vec{y}) &= \mu_i(T, p, \vec{n}) + T \, s_i(T, p, \vec{y}) \\
+        &= h_{ii}(T, p_{ii}) - T \, v_{ii}(T, p_{ii}) \, p_{ii,T}(T, p, \vec{y})
+    \\
+        u_i(T, p, \vec{y}) &= h_i(T, p, \vec{n}) - p \, v_i(T, p, \vec{y}) \\
+        &= u_{ii}(T, p_{ii}) + v_{ii}(T, p_{ii}) \left[ p_{ii} - p_{ii,T}(T, p, \vec{y}) \, T - p_{ii,p}(T, p, \vec{y}) \, p \right]
+    \end{align*}
+\end{defn}
 
 
 
@@ -160,7 +214,9 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
 
 
 
+% 请你仔细转换为latex源码，使用align*环境
 
+% 请你仔细转换为latex源码，使用gather*环境
 
 
 %  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ 正文部分

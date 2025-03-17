@@ -114,9 +114,97 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
     i.e., \( \mu_i = \mu_i(T, p, ny) \).
     \begin{zhu}
         在傅献彩的《物理化学》中化学势是系统的某种热力学性质（如内能、焓、吉布斯自由能、亥姆霍兹自由能）对物质的量的偏导数。
-        \textcolor{b1}{这里化学势定义为偏摩尔吉布斯自由能，这是更常见的定义。}
     \end{zhu}
 \end{thm}
+\begin{add}
+偏摩尔性质定义的化学势
+
+化学势的四种定义为：
+\begin{align}
+\mu_i &= \left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} \quad \text{(偏摩尔吉布斯自由能)} \\
+\mu_i &= \left( \frac{\partial F}{\partial n_i} \right)_{T, V, n_{j \neq i}} \quad \text{(偏摩尔亥姆霍兹自由能)} \\
+\mu_i &= \left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}} \quad \text{(偏摩尔内能)} \\
+\mu_i &= \left( \frac{\partial H}{\partial n_i} \right)_{S, P, n_{j \neq i}} \quad \text{(偏摩尔焓)}
+\end{align}
+化学势四种定义的等价性证明
+\begin{enumerate}
+\item 证明 \(\left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial F}{\partial n_i} \right)_{T, V, n_{j \neq i}}\)
+
+由 \(G = F + PV\)，固定 \(T, P, n_{j \neq i}\) 对 \(n_i\) 求导：
+\[
+\left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial F}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
++ P \left( \frac{\partial V}{\partial n_i} \right)_{T, P, n_{j \neq i}}
+\]
+通过链式法则将 \(\left( \frac{\partial F}{\partial n_i} \right)_{T, P}\) 转换为自然变量 \(T, V\)：
+\[
+\left( \frac{\partial F}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial F}{\partial n_i} \right)_{T, V, n_{j \neq i}} 
++ \underbrace{\left( \frac{\partial F}{\partial V} \right)_{T, n_i}}_{-P} 
+\left( \frac{\partial V}{\partial n_i} \right)_{T, P, n_{j \neq i}}
+\]
+代入后抵消交叉项：
+\[
+\left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial F}{\partial n_i} \right)_{T, V, n_{j \neq i}}
+\]
+
+\item 证明 \(\left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}} 
+= \left( \frac{\partial H}{\partial n_i} \right)_{S, P, n_{j \neq i}}\)
+
+由 \(H = U + PV\)，固定 \(S, P, n_{j \neq i}\) 对 \(n_i\) 求导：
+\[
+\left( \frac{\partial H}{\partial n_i} \right)_{S, P, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{S, P, n_{j \neq i}} 
++ P \left( \frac{\partial V}{\partial n_i} \right)_{S, P, n_{j \neq i}}
+\]
+通过链式法则将 \(\left( \frac{\partial U}{\partial n_i} \right)_{S, P}\) 转换为自然变量 \(S, V\)：
+\[
+\left( \frac{\partial U}{\partial n_i} \right)_{S, P, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}} 
++ \underbrace{\left( \frac{\partial U}{\partial V} \right)_{S, n_i}}_{-P} \left( \frac{\partial V}{\partial n_i} \right)_{S, P, n_{j \neq i}}
+\]
+代入后抵消交叉项：
+\[
+\left( \frac{\partial H}{\partial n_i} \right)_{S, P, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}}
+\]
+
+\item 证明 \(\left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}}\)
+
+由 \(G = U + PV - TS\)，固定 \(T, P, n_{j \neq i}\) 对 \(n_i\) 求导：
+\[
+\left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
++ P \left( \frac{\partial V}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+- T \left( \frac{\partial S}{\partial n_i} \right)_{T, P, n_{j \neq i}}
+\]
+通过链式法则展开 \(\left( \frac{\partial U}{\partial n_i} \right)_{T, P}\)：
+\[
+\left( \frac{\partial U}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}} 
++ \underbrace{\left( \frac{\partial U}{\partial S} \right)_{V, n_i}}_{T} 
+\left( \frac{\partial S}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
++ \underbrace{\left( \frac{\partial U}{\partial V} \right)_{S, n_i}}_{-P} 
+\left( \frac{\partial V}{\partial n_i} \right)_{T, P, n_{j \neq i}}
+\]
+代入后抵消所有附加项：
+\[
+\left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}}
+\]
+
+\item 四种定义等价：
+\[
+\mu_i = \left( \frac{\partial G}{\partial n_i} \right)_{T, P, n_{j \neq i}} 
+= \left( \frac{\partial F}{\partial n_i} \right)_{T, V, n_{j \neq i}} 
+= \left( \frac{\partial U}{\partial n_i} \right)_{S, V, n_{j \neq i}} 
+= \left( \frac{\partial H}{\partial n_i} \right)_{S, P, n_{j \neq i}}
+\]
+\end{enumerate}
+\end{add}
 \begin{thm}
     \textbf{Mixture properties} from the partial properties
     \begin{equation*}
@@ -161,7 +249,9 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
     once the pure-substance properties of the mixture components are known. 
     As a result, we can write
 \begin{gather*}
-    \mu_i = h_i - Ts_i = h_{ii} + \Delta h_i^{\text{max}} - Ts_{ii} - T\Delta s_i^{\text{max}} = \mu_{ii}(T,p) + \Delta h_i^{\text{max}} - T\Delta s_i^{\text{max}} = \mu_{ii}(T,p_{ii})
+    \mu_i = h_i - Ts_i = h_{ii} + \Delta h_i^{\text{max}} - Ts_{ii} - T\Delta s_i^{\text{max}} 
+    = \mu_{ii}(T,p) + \Delta h_i^{\text{max}} - T\Delta s_i^{\text{max}} 
+    = \mu_{ii}(T,p_{ii})
 \end{gather*}
 \begin{align*}
     \mu_{ii}(T,p_{ii}) - \mu_{ii}(T,p) &= \int_p^{p_{ii}} v_{ii}(T,p') \, dp' 
@@ -192,20 +282,38 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
     \end{zhu}
     \begin{align*}
         s_i(T, p, \vec{y}) &= - \left( \frac{\partial \mu_i}{\partial T} \right)_{p, \vec{n}} 
-        = - \left( \frac{\partial \mu_{ii}}{\partial T} \right)_{p, i} - \left( \frac{\partial \mu_{ii}}{\partial p_{ii}} \right)_T \left( \frac{\partial p_{ii}}{\partial T} \right)_{p, \vec{n}} \\
+        = - \left( \frac{\partial \mu_{ii}}{\partial T} \right)_{p, i} 
+        - \left( \frac{\partial \mu_{ii}}{\partial p_{ii}} \right)_T 
+        \left( \frac{\partial p_{ii}}{\partial T} \right)_{p, \vec{n}} \\
         &= s_{ii}(T, p_{ii}) - v_{ii}(T, p_{ii}) \, p_{ii,T}(T, p, \vec{y}) 
     \\
         v_i(T, p, \vec{y}) &= \left( \frac{\partial \mu_i}{\partial p} \right)_{T, \vec{n}} 
-        = \left( \frac{\partial \mu_{ii}}{\partial p_{ii}} \right)_T \left( \frac{\partial p_{ii}}{\partial p} \right)_{T, \vec{y}} \\
+        = \left( \frac{\partial \mu_{ii}}{\partial p_{ii}} \right)_T
+        \left( \frac{\partial p_{ii}}{\partial p} \right)_{T, \vec{y}} \\
         &= v_{ii}(T, p_{ii}) \, p_{ii,p}(T, p, \vec{y})
     \\
         h_i(T, p, \vec{y}) &= \mu_i(T, p, \vec{n}) + T \, s_i(T, p, \vec{y}) \\
         &= h_{ii}(T, p_{ii}) - T \, v_{ii}(T, p_{ii}) \, p_{ii,T}(T, p, \vec{y})
     \\
         u_i(T, p, \vec{y}) &= h_i(T, p, \vec{n}) - p \, v_i(T, p, \vec{y}) \\
-        &= u_{ii}(T, p_{ii}) + v_{ii}(T, p_{ii}) \left[ p_{ii} - p_{ii,T}(T, p, \vec{y}) \, T - p_{ii,p}(T, p, \vec{y}) \, p \right]
+        &= u_{ii}(T, p_{ii}) + v_{ii}(T, p_{ii}) 
+        \left[ p_{ii} - p_{ii,T}(T, p, \vec{y}) \, T - p_{ii,p}(T, p, \vec{y}) \, p \right]
     \end{align*}
 \end{defn}
+\begin{example}
+    \textbf{Ideal Gibbs-Dalton behavior} 
+    
+    is defined by
+
+Assumption 1: \(\displaystyle U = \sum_{i=1}^r n_i u_{ii}(T, p_{ii}) 
+=\sum_{i=1}^{r}n_iu_{ii}(T,p_{ii}) \)
+
+Assumption 2: \(\displaystyle S = \sum_{i=1}^r n_i s_{ii}(T, p_{ii}) \)
+
+Assumption 3: \(\displaystyle V = \sum_{i=1}^r n_i v_{ii}(T, p_{ii}) \)
+\end{example}
+
+
 
 
 

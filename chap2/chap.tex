@@ -18,7 +18,7 @@
 %  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 正文部分
 \chapter{chemical potentials and multicomponent equilibria}
 \begin{zhu}
-    双下角标表示纯物质的性质，单下角标表示混合物中该组分的性质，下角标中用逗号隔开表示对其后的性质求偏导。
+    双下角标表示\textbf{纯物质}中该组分的性质，单下角标表示\textbf{混合物}中该组分的性质(偏摩尔性质)，下角标中用逗号隔开表示对其后的性质\textbf{求偏导}。
 \end{zhu}
 \section{lecture 11-2}
 \begin{thm}
@@ -256,9 +256,9 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
 \begin{align*}
     \mu_{ii}(T,p_{ii}) - \mu_{ii}(T,p) &= \int_p^{p_{ii}} v_{ii}(T,p') \, dp' 
     = \Delta h_i^{\text{max}} - T\Delta s_i^{\text{max}}\\ 
-    &=\begin{cases} 
-    RT \ln \frac{p_{ii}}{p} & \text{ideal gas} \\
-    -(p - p_{ii})v_{ii} & \text{ideal liquid or solid}
+    &=\begin{cases} \displaystyle
+    RT \ln \frac{p_{ii}}{p} & \boxed{\text{ideal gas}} \\
+    -(p - p_{ii})v_{ii} & \boxed{\text{ideal liquid or solid}}
     \end{cases}
 \end{align*}
 \end{corollary}
@@ -276,10 +276,6 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
 \end{center}
 \begin{defn}
     \textbf{Partial properties} in terms of \textbf{partial pressures} and \textbf{pure-substance properties}
-    \begin{zhu}
-        partial pressure is not defined by a partial derivative 
-        with respect to some amount at constant \(T\), \(p\), and \(\vec{n}\).
-    \end{zhu}
     \begin{align*}
         s_i(T, p, \vec{y}) &= - \left( \frac{\partial \mu_i}{\partial T} \right)_{p, \vec{n}} 
         = - \left( \frac{\partial \mu_{ii}}{\partial T} \right)_{p, i} 
@@ -299,19 +295,114 @@ dEu &= -S dT + Vdp - n du = 0  \Rightarrow d\mu = -s dT + vdp \quad \boxed{\text
         &= u_{ii}(T, p_{ii}) + v_{ii}(T, p_{ii}) 
         \left[ p_{ii} - p_{ii,T}(T, p, \vec{y}) \, T - p_{ii,p}(T, p, \vec{y}) \, p \right]
     \end{align*}
+    \begin{zhu}
+        partial pressure is not defined by a partial derivative 
+        with respect to some amount at constant \(T\), \(p\), and \(\vec{n}\).
+
+        中文的优势又体现出来了，显然分压强(partial pressure)和偏摩尔性质(partial properties)定义不一样。
+    \end{zhu}
 \end{defn}
 \begin{example}
     \textbf{Ideal Gibbs-Dalton behavior} 
     
     is defined by
+    \begin{gather*}
+    \text{Assumption 1:}
+    U = \sum_{i=1}^r n_i u_i(T, p, y) = \sum_{i=1}^r n_i u_{ii}(T, p_{ii})
+\\
+    \text{Assumption 2:}
+    S = \sum_{i=1}^r n_i s_i(T, p, y) = \sum_{i=1}^r n_i s_{ii}(T, p_{ii})
+\\    
+    \text{Assumption 3:}
+    V = \sum_{i=1}^r n_i v_i(T, p, y) = n_i v_{ii}(T, p_{ii}) \;,\; \forall i
+    \end{gather*}
 
-Assumption 1: \(\displaystyle U = \sum_{i=1}^r n_i u_{ii}(T, p_{ii}) 
-=\sum_{i=1}^{r}n_iu_{ii}(T,p_{ii}) \)
+    the Euler relation of the mixture \(\displaystyle \quad U = TS - pV + \sum_{i=1}^r \mu_i n_i \)
 
-Assumption 2: \(\displaystyle S = \sum_{i=1}^r n_i s_{ii}(T, p_{ii}) \)
+    the specific Euler relations of its pure constituents \(\displaystyle \quad u_{ii} = Ts_{ii} - p_{ii}v_{ii} + \mu_{ii} \)
+\begin{align*}
+    \left( U - \sum_{i=1}^r n_i u_{ii}(T, p_{ii}) \right) 
+    =& T \left( S - \sum_{i=1}^r n_i s_{ii}(T, p_{ii}) \right) \\
+&- pV + \sum_{i=1}^r n_i p_{ii} v_{ii}(T, p_{ii}) 
++ \sum_{i=1}^r (\mu_i - \mu_{ii}) n_i\\
+\because \quad \mu_i =& \mu_i(T, p, n) = \mu_{ii}(T, p_{ii}) = \mu_{ii}\\
+p = \frac{1}{V} \sum_{i=1}^r n_i p_{ii} v_{ii}(T, p_{ii}) 
+ &- \frac{1}{V} \left( U - \sum_{i=1}^r n_i u_{ii}(T, p_{ii}) \right)
+ + \frac{T}{V} \left( S - \sum_{i=1}^r n_i s_{ii}(T, p_{ii}) \right)
+\end{align*}
 
-Assumption 3: \(\displaystyle V = \sum_{i=1}^r n_i v_{ii}(T, p_{ii}) \)
+Using the three assumptions that define ideal Gibbs-Dalton behavior, 
+we obtain \textbf{Dalton's law of partial pressures}:
+\[
+p = \sum_{i=1}^r p_{ii}
+\]
 \end{example}
+\begin{example}
+    \textbf{Ideal Gibbs-Dalton mixtures of ideal gases}
+    \begin{gather*}
+        v_{ii}(T, p_{ii}) = \frac{RT}{p_{ii}} \qquad
+        v_{ii}(T, p) = \frac{RT}{p} \qquad
+        V = n_i v_{ii}(T, p_{ii}) = n_i \frac{RT}{p_{ii}}\\
+        p_{ii} = n_i \frac{RT}{V} \qquad
+        p = \sum_i p_{ii} = \sum_i n_i \frac{RT}{V} = n \frac{RT}{V} \qquad
+        \frac{p_{ii}}{p} = \frac{n_i}{n} = y_i \Rightarrow p_{ii} = y_i p
+        \end{gather*}        
+        \begin{align*}
+        \mu_i(T, p, y) &= \mu_{ii}(T, p_{ii}) 
+        = \mu_{ii}(T, p) + \int_p^{p_{ii}} 
+        \left( \frac{\partial \mu_{ii}}{\partial p} \right)_T dp' 
+        = \mu_{ii}(T, p) + \int_p^{p_{ii}} v_{ii}(T, p') dp' \\
+        &= \mu_{ii}(T, p) + \int_p^{p_{ii}} \frac{RT}{p'} dp' 
+        = \mu_{ii}(T, p) + RT \ln \frac{p_{ii}}{p} \\
+        &= \mu_{ii}(T, p) + RT \ln y_i\\
+        s_i(T, p, y) &= - \left( \frac{\partial \mu_i}{\partial T} \right)_{p, n} = s_{ii}(T, p) - R \ln y_i = s_{ii}(T, p_{ii}) \\
+        v_i(T, p, y) &= \left( \frac{\partial \mu_i}{\partial p} \right)_{T, n} = v_{ii}(T, p) = \frac{RT}{p} \\
+        h_i(T, p, y) &= \left( \frac{\partial (\mu_i/T)}{\partial (1/T)} \right)_{p, n} = h_{ii}(T) \\
+        u_i(T, p, y) &= T \, s_i - p \, v_i + \mu_i = u_{ii}(T)\\
+        V &= \sum_{i=1}^r V_i' 
+        =\sum_{i=1}^r \underbrace{ n_i v_{ii}(T, p)}_{\text{proper volume of}\; i } 
+        \quad \boxed{\text{Amagat law of additive volumes}}
+        \end{align*}
+\end{example}
+\begin{example}
+    Isothermobaric mixing of ideal gases
+    \begin{align*}
+        U_{\mathrm{B'}} - U_{\mathrm{A}} &= \sum_i n_i [u_{ii}(T') - u_{ii}(T)] 
+        = \sum_i n_i \int_T^{T'} c_{v,ii}(\theta) \, d\theta = 0\\
+        &ds_{ii} = c_{p,ii}(T) \, dT/T - R \, dp/p \\
+        \Rightarrow&\;
+        s_{ii}(T', p'_{ii}) = s_{ii}(T', p') - R \ln y_i \quad(T' = T \;,\; p' = p )\\
+            S_{\mathrm{irr}} &= S_{\mathrm{B'}} - S_{\mathrm{A}}
+            = \sum_i n_i [s_{ii}(T', p'_{ii}) - s_{ii}(T, p)] 
+            = \sum_i n_i \Delta s^{\mathrm{mix}}_{i} 
+            = \sum_i n_i [-R \ln y_i]\\ 
+            &= -nR \sum_i y_i \ln y_i \geq 0
+    \end{align*}
+\end{example}
+\begin{example}
+    Isoentropic mixing of ideal gases
+    \begin{align*}
+        s_{ii}&\left(T'', p_{ii}'' = y_i \frac{T''}{T} p \right) - s_{ii}(T, p) 
+        = c_{p,ii} \ln \frac{T''}{T} - R \ln \left( y_i \frac{T''}{T} \right)
+        = c_{v,ii} \ln \frac{T''}{T} - R \ln y_i\\
+        0 &= S_{B''} - S_A 
+        = \sum_i n_i [s_{ii}(T'', p_{ii}'') - s_{ii}(T, p)] 
+        = \sum_i n_i \left[c_{v,ii} \ln \frac{T''}{T} - R \ln y_i\right] \\
+        &= n \left[c_{v,\mathrm{mix}} \ln \frac{T''}{T} 
+        - R \sum_i y_i \ln y_i\right]\Rightarrow
+T'' = T \exp \left( \frac{R}{c_{v,\mathrm{mix}}} 
+\sum_i y_i \ln y_i \right)\quad (T'' < T) \\
+    W_{\text{rev}}^{-1} &= U_A - U_{B''} 
+    = \sum_i n_i [u_{ii}(T'') - u_{ii}(T)] 
+    = n \, c_{v,\mathrm{mix}} (T - T'') \\
+    &= n \, c_{v,\mathrm{mix}} T \left[ 1 - \exp 
+    \left( -\frac{R}{c_{v,\mathrm{mix}}} \sum_i y_i \ln y_i \right) \right]
+    \end{align*}
+\end{example}
+
+
+
+
 
 
 

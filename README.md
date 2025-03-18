@@ -41,7 +41,12 @@ This course is a self-contained concise review of general thermodynamics concept
 
 -Lecture 10: Review of Various Forms of Exergy (Part II); Allocation of Consumptions in Cogeneration
 
-### 2. ****  
+### 2. **chemical potentials and multicomponent equilibria**  
+-Lecture 11: Allocation in Hybrid Power Production; Chemical Potentials and Partial Pressures
+
+-Lecture 12: Ideal Mixture Behavior; Work from Reversible Mixing; Entropy of Irreversible Mixing
+
+-Lecture 13: Gibbs Paradox; Shannon Information Entropy; Single Quantum Particle in a Box
 ### 3. ****  
 
 ---
@@ -53,4 +58,4 @@ This course is a self-contained concise review of general thermodynamics concept
 ---
 
 ⭐ **欢迎贡献**  
-鼓励通过Issue提交计算案例或理论拓展建议，共同构建开放热力学知识库！
+欢迎大家通过Issue提交计算案例或理论拓展建议，共同构建开放工程热力学知识库！

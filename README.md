@@ -49,13 +49,4 @@ This course is a self-contained concise review of general thermodynamics concept
 -Lecture 13: Gibbs Paradox; Shannon Information Entropy; Single Quantum Particle in a Box
 ### 3. ****  
 
----
 
-## 致谢
-
-笔记内容基于MIT OCW，特别感谢授课教师对热力学抽象概念的工程化诠释，版权问题请联系更正。
-
----
-
-⭐ **欢迎贡献**  
-欢迎大家通过Issue提交计算案例或理论拓展建议，共同构建开放工程热力学知识库！

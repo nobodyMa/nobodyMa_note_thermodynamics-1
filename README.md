@@ -5,10 +5,10 @@
 
 # MIT 2.43 Advanced Thermodynamics Course Notes
 
-📚 **课程代码**：2.43  
-🏛 **所属院校**：麻省理工学院（MIT）  
-📅 **学期**：2024年春季  
-🌐 **课程官网**：[MIT OCW Syllabus](https://ocw.mit.edu/courses/2-43-advanced-thermodynamics-spring-2024/)
+**课程代码**：2.43  
+**开课院校**：麻省理工学院（MIT）  
+**学期**：2024年春季  
+**课程官网**：[MIT OCW Syllabus](https://ocw.mit.edu/courses/2-43-advanced-thermodynamics-spring-2024/)
 
 ---
 
